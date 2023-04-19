@@ -1,0 +1,70 @@
+                //     <tr>
+                //         <td><?php echo $key+1;?></td>
+                //         <td>
+                //         <!-- href="Calories.php" -->
+                //           <!-- <a href="Calories.php"> </a> -->
+                //           <button type="submit" onclick="activate()" name="submit" id="foodbtn">
+                //           <!-- <?php echo $value['food_items'];?> -->
+
+                //         </button>
+                //       </td>
+                //       <!-- Below stuff commented out -->
+                //         <!-- <td><?php echo $value['quantity'];?></td>
+                //         <td><?php echo $value['calorie'];?></td>
+                //         <td><?php echo $value['unit'];?></td> -->
+                //     </tr>
+                         
+
+
+                              <!-- Below stuff commented out -->
+       <!-- <td><?php echo $value['quantity'];?></td>
+       <td><?php echo $value['calorie'];?></td>
+       <td><?php echo $value['unit'];?></td> -->
+
+
+       <?php
+  // foreach($result as $key=>$value)
+  // {
+  //              if ( in_array($value['food_items'], $uniques1) ) {
+  //                       continue;
+  //                   }
+  //                   $uniques1[] =$value['food_items'];
+  //                   $food=$value['food_items'];
+  //                   echo $food;
+  //     ?>
+ <?php
+  // }
+  ?>
+
+
+  <!-- <div class="container-fluid">
+    <table class="table">
+      
+    </table>
+  </div>  -->
+  <!-- <div class="row">
+    <div class="col-6" style=" padding-top: 5%; padding-left: 8%; opacity: 90%;">
+        <img src="undraw_breakfast_psiw.svg" alt="" width="80%">
+      </div>
+    <div class="col" style="padding-top: 6%; padding-left: 8%;padding-right: 10%;">
+        <img src="foods_highest_in_calories.PNG" alt="" width="100%">
+        <div id="discover">Discover how the food you eat, supports your goals</div>
+
+      </div>
+  </div> -->
+  <!-- <div class="table-responsive">          
+      <table class="table">
+        <thead>
+          <tr>
+            <th>FOOD ITEMS</th>
+            <th>QUANTITY</th>
+            <th>CALORIE</th>
+            <th>UNIT</th>
+          </tr>
+        </thead>
+        <tbody>
+                
+             
+         </tbody>
+      </table>
+    </div> -->

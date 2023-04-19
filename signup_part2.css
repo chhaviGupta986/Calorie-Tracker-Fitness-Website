@@ -1,0 +1,43 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+.card{
+    border-color: #ff44a8;
+    width: 50%;
+}
+form .col-md-6,.col-12{
+    margin-bottom: 3%;
+}
+section{
+    padding-bottom: 3%;
+    padding-top: 3%;
+    min-height: 100vh;
+font-family: 'Tilt Neon', cursive;
+background-image: url(signup_2_bg.png);
+background-size: cover;
+position: relative;
+}
+.choice_list label{
+margin-right: 8%;
+margin-top: 1.5%;
+
+}
+input{
+    border-width: 1.8px;
+    border-color:rgba(128, 128, 128, 0.646);
+    }
+.btn{
+    background-color: #ff44a8d8;
+    border-color: #ff44a8d8;
+}
+.btn:hover{
+    /* background-color: lightpink;
+    border-color: #ff44a8; */
+    border-color: lightpink;
+}

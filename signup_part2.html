@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete sign-up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="signup_part2.css" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;500&family=Sulphur+Point:wght@300&family=Suwannaphum&family=Tilt+Neon&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-bottom: 0px;">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg> -->
+        <span class="glyphicon glyphicon-ok-sign"></span>
+        <strong> Registeration Successfull!</strong> Please tell us some more details about you, so we can serve you
+        better.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- form -->
+    <section class="h-100" style="display:flex; justify-content: center; ">
+        <div class="card rounded-4 opacity-100">
+
+        <div class="card-body p-sm-5 text-black fs-3">
+            <img src="pink_logo.PNG" alt="Logo" height="50vh" class="d-inline-block"
+                style="margin-right: 3px; opacity: 100%; ">
+            <h1 style="display: inline; 
+                    font-family: 'Sulphur Point', sans-serif; font-size:4rem; 
+                    color: rgba(0, 0, 0, 0.765); font-weight: 550;
+                    vertical-align:middle;">
+                RFiT</h1>
+            <br><br>
+            <!-- onsubmit="dateval()" -->
+            <form class="row g-8" name="Form1" action="#" method="post" onsubmit="return checkfunc()">
+                    <div class="col-md-6">
+                        <label for="validationServer01" class="form-label">First name:</label>
+                        <input type="text" class="form-control fs-5 border border-2" name="fname"
+                        id="validationServer01" value="Andrew" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationServer02" class="form-label">Last name:</label>
+                        <input type="text" class="form-control fs-5 border border-2" name="lname"
+                        id="validationServer02" value="Tate" required>
+                    </div>
+                    <div class="col-md-6 ">
+                        <label for="validationServer03" class="form-label"> Gender:</label>
+<!-- KEEP NAME OF RADIO BUTTONS SAME -->
+
+<!-- stored as M/F/O  -->
+<br>
+<input type="radio" class="form-check-input" style="border-width:1.2px; border-color:rgba(128, 128, 128, 0.459);"
+id="male"name="gender" value="M" style="margin-left: 0%;">
+<label for="yes" class="fs-4"style="margin-right: 10%;"> Male </label>
+<input type="radio" class="form-check-input" style="border-width:1.2px; border-color:rgba(128, 128, 128, 0.459);"
+id="female" name="gender" value="F">
+<label for="no" class="fs-4"style="margin-right: 10%;" >Female</label>
+<input type="radio" class="form-check-input" style="border-width:1.2px; border-color:rgba(128, 128, 128, 0.459);"
+id="other" name="gender" value="O">
+<label for="no" class="fs-4" >Other</label>
+
+                    </div>
+                    <div class="col-md-6" onClick="return dateval()">
+                        <label for="validationServer04" class="form-label">Date of Birth:</label>
+                        <input type="date" class="form-control fs-5 border border-2" id="datefield"
+                        value="" max="" min="1920-01-01" name="dob"
+                        aria-describedby="validationServer04Feedback" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationServer05" class="form-label">Current Weight:</label>
+                        <input type="number" class="form-control fs-5 border border-2"
+                        name="weight" min=20 max="220" id="validationServer04"
+                            aria-describedby="validationServer05Feedback" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationServer06" class="form-label">Your Height (in cms):</label>
+                        <input type="number" class="form-control fs-5 border border-2" name="height"
+                        min="20" max="220"
+                        id="validationServer06"
+                            aria-describedby="validationServer06Feedback" required>
+                    </div>
+                    <div class="col-12">
+                        <br>
+                        <img src="target2.jpg" alt="" height="26px" style=" margin-right: 2px;"> 
+                        <label for="validationServer07" class="form-label" style=" display:inline;vertical-align: middle; 
+                        margin-top: 1rem; color: deeppink;">
+                           Why do you want to join RFit?
+                            </label>
+    <br>
+    <div class="choice_list">
+        <input type="checkbox" class="form-check-input" 
+        style="vertical-align:baseline; width: 0.9em; height: 0.9em; border-width:1.2px; border-radius:0.2em;
+         border-color:rgba(128, 128, 128, 0.459);" 
+        id="reason1" name="reason1" value="loseweight">
+        <label for="reason1"> To lose weight</label>
+        <input type="checkbox"         style="vertical-align:baseline; width: 0.9em; height: 0.9em; border-width:1.2px; border-radius:0.2em;
+        border-color:rgba(128, 128, 128, 0.459);"
+        class="form-check-input" id="reason2" name="reason2" value="countcal">
+        <label for="reason2">To count calories </label>
+        <input type="checkbox" class="form-check-input" 
+        style="vertical-align:baseline; width: 0.9em; height: 0.9em; border-width:1.2px; border-radius:0.2em;
+        border-color:rgba(128, 128, 128, 0.459);"
+        id="reason3" name="reason3" value="improvediet">
+        <label for="reason3">To improve diet</label>
+        <input type="checkbox" class="form-check-input"
+        style="vertical-align:baseline; width: 0.9em; height: 0.9em; border-width:1.2px; border-radius:0.2em;
+        border-color:rgba(128, 128, 128, 0.459);"
+         id="reason4" name="reason4" value="gainweight">
+        <label for="reason4">To gain weight</label>
+    </div>
+                    </div>
+                    <div class="col-12" style="display: flex; justify-content: end; margin-top: 2%;">
+                        <button class="btn fs-3" name="submit" type="submit" >Submit</button>
+                    </div>
+            </form>
+        </div>
+</div>
+        
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script> 
+    <script type="text/javascript" src="signup_part2.js"></script>
+</body>
+
+</html>

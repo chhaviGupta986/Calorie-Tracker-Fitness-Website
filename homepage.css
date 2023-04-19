@@ -1,0 +1,290 @@
+.nav-item .nav-link{
+    /* margin-top: 2em; */
+    margin-left: 1.4em;
+    margin-right: 0.5em;
+    padding: 0px,0px;
+    font-weight:600;
+    font-size:1.7rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* font-family: 'Phudu', cursive; */
+}
+html{
+    /* min-height: 100%; */
+}
+* {
+    box-sizing:border-box;
+
+}
+section{
+    /* margin-bottom: 0px;
+    padding-bottom: 0px; */
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px; 
+    /* border-color: darkblue;
+    border-style: groove; */
+}
+body{
+    padding-left: 0px;
+    position: relative;
+    /* border-color: rgb(78, 78, 8);
+    border-width: 3px;
+    border-style: dotted; */
+    padding-right: 0px;
+    /* min-height: max-content; */
+    /* height: 100%; */
+    /* border-color: rgb(139, 69, 0);
+    border-style: groove; */
+}
+.container-fluid{
+    margin-right: 0px;
+    margin-left: 0px;
+    /* border-color: rgb(249, 12, 162);
+    border-style: dashed; */
+    /* padding: 0%;  */
+    /* ok */
+}
+.col{
+    /* display: inline; */
+    margin-bottom: 6rem;
+    color: black;
+}
+#main_nav{
+    /* padding: 0px,0px,0px,0px; */
+    padding-top: 0.1rem;
+    /* padding-left: 0.5rem; */
+    margin-right: 0rem;
+    padding-right: 0%;
+    /* background-color:#bffcee; */
+    /* background-color: rgb(211, 209, 209); */
+    /* background-color: yellow; */
+    background-color:#ff44a8;
+    /* background-image:linear-gradient(to right,rgba(252, 221, 158, 0.881),rgb(249, 205, 123)); */
+  }
+.main{
+    /* position:absolute; */
+    /* height: 100vh; */
+    /* padding: 0%; */
+    /* border-color:green;
+    border-style: dashed; */
+    /* min-height: 100vh; dont ever use*/
+}
+.photo{
+    top: 10%;
+    background-color:white;
+}
+.main svg{
+    /* display: inline-block; */
+    z-index: -1;
+    position: absolute;
+    /* width: 100%; */
+}
+
+.navigation{
+    height: 20px;
+    /* padding: 30px 100px; */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* z-index: 99; */
+}
+.brand{
+    color: #fff;
+    font-weight: 700;
+    font-size: 50px;
+}
+/* 
+.nav-menu{
+    padding-left: 200px;
+} */
+
+.nav-menu li{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px;
+    margin-right: 0px;
+    font-size: 20px;
+    color: #ffffff;
+}
+.nav-menu li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+#slogan{
+    font-weight: 1200;
+    /* font-size:1000em; */
+    font-family: 'Sulphur Point', sans-serif;
+    padding-top: 20%;
+    padding-right: 12%;
+}
+footer{
+    background-color: black;
+    color: #ff44a8;
+    height:10vh;
+    /* height: 2%;
+    width: 100%;
+    position: fixed; */
+    padding: 1vh;
+    margin-right: 0px;
+    margin-left: 0px;
+    /* border-color: darkblue;
+    border-style: groove; */
+    position: relative;
+}
+#tools{
+    height: 9%;
+    /* width: 100%; */
+    /* top: 130%; */
+    /* left: 50%; */
+    /* padding-top: 1px; */
+    /* margin-top: 2rem; */
+    background-blend-mode: lighten;
+    /* background-color: rgb(236, 77, 143); */
+    background-color:#ff44a8;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+}
+.button{
+    border-radius: 2px;
+    background-color: lightpink; 
+    border-color: lightpink;
+    /* background-color: #ff44a8d8;
+    border-color: #ff44a8d8; */
+    width: 60%;
+    /* height: 50%; */
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 3%;
+    font-size:2rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.13), 0 6px 10px 0 rgba(0,0,0,0.1)
+}
+
+.button:hover {
+    background-color: white;
+    /* border-color: #ff44a8; */
+    border-color: lightpink;
+    color: black;
+  }
+#tools:hover{
+    animation: example 5s infinite;
+}
+@keyframes example {
+    from {background-color: whitesmoke;color: black;}
+    /* from {background-color: rgba(241, 116, 180, 0.235);color: black;} */
+    to {background-color: rgb(236, 77, 143);color: white;}
+  }
+.toolcard{
+    color: white;
+    /* padding-top: 2%;
+    padding-bottom: 2%; */
+    margin-top: 0vh;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 2rem;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+.about{
+    font-size: xx-large;
+    font-variant: small-caps;
+}
+.about .col{
+    display: flex;
+    align-items: center;
+}
+
+.card-body{
+    text-align: center; 
+    background-color: lightpink;
+    /* background-color:#ff44a8cd; */
+    padding-bottom: 1.7rem;
+}
+
+.card-title{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align-last: center; 
+    font-weight: 530;
+    font-size: 2.5rem;
+    font-weight:420;
+    /* color: #ffffff; */
+    /* color: aquamarine; */
+}
+.card-text{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+    font-size: 1.7rem;
+    line-height: 150%;
+    /* color: #ffffff; */
+}
+
+
+/*               TO MAKE RESPONSIVE               */
+
+/* @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  } */
+  @media screen and (max-width: 768px) {
+    /* ul.navbar-nav{
+      padding-inline-start: 0vw;
+    } */
+    #wave{
+        display: none;
+    }
+    .medi{
+        width: 100%;
+    }
+    div #slogan{
+        display: inline;
+        width:100%;
+        text-align: center;
+    }
+    #a_button{
+        display: flex;
+        justify-content: center;
+    }
+  }
+  /* @media screen and (max-width: 768px) {
+    #slogan h2,h1{
+
+      display: flexbox;
+    } 
+    div #slogan{
+        display: inline;
+        width:100%;
+    }
+
+  } */
+
+    
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    /* outline: none;  */
+    /* Remove outline */
+    outline: #ff44a8;
+    /* background-color: lightpink;  */
+    /* Set a background color */
+    background-color: #ff44a8;
+    color: white; /* Text color */
+    /* color: black; */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 8px; /* Some padding */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    font-family: 'Sulphur Point', sans-serif;
+}
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }

@@ -1,0 +1,95 @@
+/* //this is for login page */
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+/* background-image: url('undraw_Welcome_re_h3d9.png'); */
+background-size: cover;
+/* background-repeat: no-repeat; */
+/* height: 100%; */
+font-family: 'Numans', sans-serif;
+background-image: url(signup_2_bg.png);
+}
+
+.container{
+
+height: 100%;
+/* align-content: right; */
+}
+
+.card{
+height: 320px;
+margin-top:10%;
+/* margin-bottom: auto; */
+width: 400px;
+background-color: rgba(0,0,0,0.5);
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+/* color:#ff44a8; */
+color:white;
+color:azure;
+/* color:lightpink; */
+}
+
+.social_icon span:hover{
+color: lightpink;
+cursor: pointer;
+}
+
+.card-header h3{
+
+color:azure;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color:lightpink;
+/* background-color:#ff44a8; */
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0;
+box-shadow: 0 0 0 0 ;
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+/* background-color:#ff44a8; */
+background-color:lightpink;
+}
+
+.login_btn:hover{
+border-color: lightpink;
+background-color: white;
+color: black;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
