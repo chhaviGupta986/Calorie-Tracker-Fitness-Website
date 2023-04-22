@@ -15,11 +15,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if ($num == 1){
         while($row=mysqli_fetch_assoc($result)){
             $hash=$row["password"];
+            $id=$row["user_id"];
+            $role=$row["role"];
             if (password_verify($password, $hash)){ 
                 $login = true;
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
+                $_SESSION['id'] = $id;
+                $_SESSION['role'] = $role;
                 header("location: welcome.php");
             } 
             else{
@@ -117,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account?<a href="signup.html" style="color:  rgb(255, 108, 169);">Register
+                        Don't have an account?<a href="signup.php" style="color:  rgb(255, 108, 169);">Register
                             here</a>
                     </div>
                 </div>

@@ -74,7 +74,7 @@ if(isset($_POST['submit']))
   <nav class="navbar  navbar-expand-md" id="main_nav" aria-label="Second navbar example">
     <div class="container-fluid ">
         <a class="navbar-brand" href="#" style="color: white; font-weight: 500; font-size: xx-large;">
-            <img src="logo.PNG" alt="Logo" height="50vh" class="d-inline-block"
+            <img src="images/logo.PNG" alt="Logo" height="50vh" class="d-inline-block"
                 style="padding-right:0vh ; padding-bottom: 0.1em; margin: 0px,0px,0px,0px;">
 
                 <h2 style="display: inline; font-family: 'Sulphur Point', sans-serif; font-size: larger; font-weight: bold;">RFiT</h2>

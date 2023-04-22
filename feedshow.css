@@ -1,0 +1,101 @@
+.nav-item .nav-link{
+    /* margin-top: 2em; */
+    margin-left: 1.4em;
+    margin-right: 0.5em;
+    padding: 0px,0px;
+    font-weight:600;
+    font-size:1.7rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* font-family: 'Phudu', cursive; */
+}
+section{
+    /* margin-bottom: 0px;
+    padding-bottom: 0px; */
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px; 
+    /* border-color: darkblue;
+    border-style: groove; */
+}
+.container-fluid{
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 35px;
+    /* border-color: rgb(249, 12, 162);
+    border-style: dashed; */
+    /* padding: 0%;  */
+    /* ok */
+}
+.col{
+    /* display: inline; */
+    margin-bottom: 6rem;
+    color: black;
+}
+#main_nav{
+    /* padding: 0px,0px,0px,0px; */
+    padding-top: 0.1rem;
+    /* padding-left: 0.5rem; */
+    margin-right: 0rem;
+    padding-right: 0%;
+    /* background-color:#bffcee; */
+    /* background-color: rgb(211, 209, 209); */
+    /* background-color: yellow; */
+    background-color:#ff44a8;
+    /* background-image:linear-gradient(to right,rgba(252, 221, 158, 0.881),rgb(249, 205, 123)); */
+  }
+
+.photo{
+    top: 10%;
+    background-color:white;
+}
+.main svg{
+    /* display: inline-block; */
+    z-index: -1;
+    position: absolute;
+    /* width: 100%; */
+}
+
+.navigation{
+    height: 20px;
+    /* padding: 30px 100px; */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* z-index: 99; */
+}
+.brand{
+    color: #fff;
+    font-weight: 700;
+    font-size: 50px;
+}
+/* 
+.nav-menu{
+    padding-left: 200px;
+} */
+
+.nav-menu li{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px;
+    margin-right: 0px;
+    font-size: 20px;
+    color: #ffffff;
+}
+.nav-menu li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+    /* ul.navbar-nav{
+      padding-inline-start: 0vw;
+    } */
+    #wave{
+        display: none;
+    }
+    .medi{
+        width: 100%;
+    }
+}

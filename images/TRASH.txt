@@ -44,10 +44,10 @@
   </div>  -->
   <!-- <div class="row">
     <div class="col-6" style=" padding-top: 5%; padding-left: 8%; opacity: 90%;">
-        <img src="undraw_breakfast_psiw.svg" alt="" width="80%">
+        <img src="images/undraw_breakfast_psiw.svg" alt="" width="80%">
       </div>
     <div class="col" style="padding-top: 6%; padding-left: 8%;padding-right: 10%;">
-        <img src="foods_highest_in_calories.PNG" alt="" width="100%">
+        <img src="images/foods_highest_in_calories.PNG" alt="" width="100%">
         <div id="discover">Discover how the food you eat, supports your goals</div>
 
       </div>

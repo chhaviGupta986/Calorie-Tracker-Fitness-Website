@@ -1,0 +1,217 @@
+food_items,quantity,calorie,unit
+Tamarind Rice,1,160,katori
+Tamarind Rice,1,265,cup
+Tamarind Rice,1,289,bowl
+Tamarind Rice,124,160,grams
+Vegetable Makhani,150,130,grams
+Paneer Kalimirch,150,346,grams
+Paratha,1,80,piece
+Chapathi,1,80,piece
+Curd Rice,300,433,grams
+Bisibela Bhat,300,535,grams
+Papad,1,46,piece
+Fruit Salad,1,37,katori
+Fruit Salad,1,86,bowl
+Fruit Salad,193,86,grams
+Salad,5,70,piece
+Raitha,80,112,ml
+Jamoon,40,143,grams
+"Vegetable side dishes (Aloo Gobi, Aloo mutter, etc), without Paneer / Butter",60,150,grams
+Plain Rice,150,306,grams
+Brinjal Sambar,150,199,grams
+Garlic Rasam,150,36,grams
+Chapathi,35,80,grams
+Banana Poriyal,100,353,grams
+Sorekai Kootu,150,415,grams
+Side dishes with Butter / Paneer,60,170,grams
+Dry sweets,80,130,grams
+Kheer / Payaasam,1,120,katori
+Salad,5,70,piece
+Fried rice / Bisibelebath / Vegetable pulao / Puliogere / Vangibath / etc,60,90,grams
+Raita,1,80,katori
+Fryums,5,100,piece
+Stuffed parathas,2,110,piece
+Vegetable soup without cream,1,55,katori
+Egg fried Rice,200,340,grams
+Garlic Chicken,150,314,grams
+Chicken Biriyani,200,470,grams
+Mutton Biriyani,200,450,grams
+Kadai Chicken,200,350,grams
+Chicken Hyderabadi,200,700,grams
+Chicken Lollypop,70,100,grams
+Chicken Chilly Fry,200,300,grams
+Egg Omlette,1,130,piece
+Egg and Dal Curry,200,300,grams
+Fish Fry,100,240,grams
+Fish Curry,200,460,grams
+E Burji Masala,150,258,grams
+Chicken Kalmirch,150,341,grams
+White Rice,60,55,grams
+Chappathis,2,80,piece
+Dal preparations,60,70,grams
+Rasam (plain / masala),1,30,katori
+Sambar(with 1 or 2 vegetables),1,60,katori
+Vegetable Curry,60,100,grams
+Curd,1,112,katori
+Butter Milk,1,56,katori
+Pickle,1,9,spoon
+Papad(Fried),1,160,piece
+Jeera Pulao,150,388,grams
+Aloo Mooli Bhaji,150,196,grams
+Veetable Makhani,150,130,grams
+Dal Lasooni,100,237,grams
+Jelabi,100,380,grams
+Veetable Fried Rice,150,258,grams
+Aloo Okra Chilly,150,326,grams
+Veetable Noodles,150,316,grams
+Nuts,100,718,grams
+Butter,100,717,grams
+Pine Nuts,100,673,grams
+Walnut,100,654,grams
+Almond,100,576,grams
+Peanuts,100,567,grams
+Watermelon Seeds,100,557,grams
+CashewnutsÃ‚,100,553,grams
+Granola,100,489,grams
+Cheese,100,402,grams
+Coconut,100,354,grams
+Foxnuts,100,347,grams
+Dates,100,282,grams
+Fish,100,206,grams
+Avocados,100,160,grams
+Banana,100,89,grams
+Potato,100,77,grams
+Guava,100,68,grams
+Grapes,100,67,grams
+Milk,100,61,grams
+Apple,100,52,grams
+Akhrot,100,654,grams
+Badaam,100,576,grams
+Paneer,100,402,grams
+Makhna,100,347,grams
+Khajoor,100,282,grams
+Anjeer,100,239,grams
+Brown Rice,100,123,grams
+Kela,100,89,grams
+Aaloo,100,77,grams
+Amrood,100,68,grams
+Angoor,100,67,grams
+Doodh,100,61,grams
+Chicken Kadai,1,350,kadai
+"Aloo Gobi, Aloo mutter",1,150,katori
+Aloo Mutter,1,150,katori
+Fried rice ,1,90,katori
+Vegetable pulao,1,90,katori
+White Rice,1,55,katori
+Dal,1,70,katori
+Vegetable Curry,1,100,katori
+"Peda, mawa peda",1,130,piece
+Chicken Lollypop,1,100,piece
+Egg fried Rice,1,340,plate
+Chicken Biryani,1,470,plate
+Mutton Biryani,1,450,plate
+Chicken Hyderabadi,1,700,plate
+"Baigan, raw",100,25,grams
+Orange Sherbet,100,144,grams
+"Chewing gum, sugarless",100,268,grams
+Sprouts,100,106,grams
+"Broccoli, cooked",100,33,grams
+"Bread, toasted, wheat",100,313,grams
+Chocolate Ice cream,100,216,grams
+"McDONALD'S, BIG MAC",100,257,grams
+"Bread, toasted, egg",100,315,grams
+"Ice creams, vanilla",100,207,grams
+Ice cream sandwich,100,237,grams
+Fruit Jam,100,278,grams
+"Bread, white wheat",100,238,grams
+"Butter, salted",100,717,grams
+"Carrots, raw",100,41,grams
+"Bread, wheat",100,267,grams
+"Bananas, raw",100,89,grams
+Chewing gum,100,360,grams
+"Mangos, raw",100,60,grams
+"Pears, raw",100,57,grams
+"Egg, poached, cooked, whole",100,143,grams
+"Noodles, chow mein, chinese",100,475,grams
+"Fast foods, hot fudge, sundae",100,180,grams
+"Egg, scrambled, cooked, whole",100,149,grams
+"Egg, raw, fresh, whole, goose",100,185,grams
+"McDONALD'S, Chicken McNUGGETS",100,302,grams
+"English muffins, whole-wheat",100,203,grams
+"Ice creams, light, chocolate",100,187,grams
+"Apples, with skin, gala, raw",100,57,grams
+"Peanut spread, reduced sugar",100,650,grams
+"McDONALD'S, Hot Fudge Sundae",100,186,grams
+"Candies, semisweet chocolate",100,480,grams
+"Buckwheat flour, whole-groat",100,335,grams
+"Milk shakes, thick chocolate",100,119,grams
+"Egg, raw, fresh, whole, duck",100,185,grams
+"Candies, CARAMELLO Candy Bar",100,462,grams
+"Mushrooms, stir-fried, white",100,26,grams
+"Ice creams, rich, chocolate",100,251,grams
+"Milk, fluid, indian buffalo",100,97,grams
+"Fast foods, caramel, sundae",100,196,grams
+"Cheese, whole milk, ricotta",100,174,grams
+"Beverages, powder, Lemonade",100,376,grams
+"Tomatoes, cooked, ripe, red",100,18,grams
+"BURGER KING, Chicken Strips",100,292,grams
+"Candies, KIT KAT Wafer Bar",100,518,grams
+"BURGER KING, Vanilla Shake",100,168,grams
+"Ice creams, light, vanilla",100,180,grams
+"Milk shakes, thick vanilla",100,112,grams
+"Egg, omelet, cooked, whole",100,154,grams
+"Pasta, cooked, whole-wheat",100,149,grams
+"Beverages, chocolate syrup",100,279,grams
+Ice cream cookie sandwich,100,240,grams
+"BURGER KING, french fries",100,280,grams
+"Ice creams, rich, vanilla",100,249,grams
+"Cookies, dry mix, oatmeal",100,462,grams
+"Bread, whole wheat",100,262,grams
+"McDONALD'S, french fries",100,323,grams
+"McDONALD'S, Cheeseburger",100,263,grams
+"Almonds, blanched",100,590,grams
+"Bread, toasted, oatmeal",100,292,grams
+"Ice creams, strawberry",100,192,grams
+"Yogurt, whole milk, fruit, Greek",100,106,grams
+"Peanut butter, reduced fat, smooth",100,520,grams
+"Cookies, dry mix, chocolate chip",100,497,grams
+"Yogurt, whole milk, plain, Greek",100,97,grams
+"Egg, hard-boiled, cooked, whole",100,155,grams
+"Noodles, egg",100,138,grams
+Chocolate Bar,100,512,grams
+Orange juice ,100,54,grams
+"Pasta, cooked, plain, fresh-refrigerated",100,131,grams
+"Candies, SNICKERS Bar, MARS SNACKFOOD US",100,491,grams
+"McDONALD'S, McFLURRY with OREO cookies",100,165,grams
+"Ice creams, soft-serve, french vanilla",100,222,grams
+"Ice creams, soft-serve, light, vanilla",100,126,grams
+"Lemonade, prepared with water, powder",100,14,grams
+"Chocolate, 45- 59% cacao solids, dark",100,546,grams
+"Chocolate, 70-85% cacao solids, dark",100,598,grams
+"Beverages, bottled, Whiskey sour mix",100,87,grams
+"Chocolate, 60-69% cacao solids, dark",100,579,grams
+"PIZZA HUT 12"" Cheese Pizza, THIN 'N CRISPY Crust",100,303,grams
+"Cocoa mix, Rich Chocolate Hot Cocoa Mix, NESTLE",100,400,grams
+"Candies, SNICKERS MUNCH bar, MARS SNACKFOOD US",100,536,grams
+"Waffles, ready-to-heat, frozen, chocolate chip",100,297,grams
+"DOMINO'S 14"" Cheese Pizza, Crunchy Thin Crust",100,298,grams
+"DOMINO'S 14"" Cheese Pizza, Classic Hand-Tossed Crust",100,257,grams
+Fruit juice smoothie,100,50,grams
+"DOMINO'S 14"" Cheese Pizza, Ultimate Deep Dish Crust",100,265,grams
+"Cookies, baked, refrigerated dough, chocolate chip",100,492,grams
+"Cake, with vanilla frosting, commercially prepared, yellow",100,391,grams
+"CAMPBELL'S Red and White, condensed, PHINEAS and FERB Soup",100,56,grams
+"Doughnuts, chocolate-coated or frosted, plain, cake-type",100,452,grams
+"Fruit juice smoothie, strawberry banana, BOLTHOUSE FARMS",100,52,grams
+"DOMINO'S 14"" Pepperoni Pizza, Ultimate Deep Dish Crust",100,283,grams
+"Cake, home baked style, Panque Casero, BIMBO Bakeries USA, pound",100,418,grams
+"Candies, M&M's MINIs Milk Chocolate Candies, MARS SNACKFOOD US",100,502,grams
+Cranberry-Apple Juice ,100,56,grams
+"Pancakes, plain",100,233,grams
+"Ice creams, Vanilla Chocolate Strawberry, No Sugar Added, BREYERS",100,143,grams
+"DOMINO'S 14"" EXTRAVAGANZZA FEAST Pizza, Classic Hand-Tossed Crust",100,244,grams
+"Pizza, frozen",100,276,grams
+Rajma,100,123,grams
+"Yogurt, with low-calorie sweetener",100,104,grams
+"Beef, raw",100,192,grams
+"Beef, grilled",100,175,grams

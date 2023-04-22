@@ -154,7 +154,7 @@ $_SESSION['pass']=$_POST['password'];
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Already have an account?<a href="#" style="color:  rgb(255, 108, 169);">Login</a>
+					Already have an account?<a href="login.php" style="color:  rgb(255, 108, 169);">Login</a>
 				</div>
 			</div>
 		</div>
@@ -168,7 +168,7 @@ $_SESSION['pass']=$_POST['password'];
 	<p>NAME</p>
 	<p id="name"  style="color:black;"></p>
 	<p>PROFILE PIC</p>
-	<img src="" alt="" id="image">
+	<img src="images/" alt="" id="image">
 	<p>EMAIL</p>
 	<p id="email"></p>
 </div> -->

@@ -1,62 +1,79 @@
 <?php
-include 'connect.php'; 
 session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
-    header("location: login.php");
-    exit;
+  header("location: login.php");
+  exit;
 }
-$user=$_SESSION['username'];
-$id=$_SESSION['id'];
-// $sql1="SELECT user_id FROM `client` WHERE username='$user'";
-// $result1 = mysqli_query($conn, $sql1);
-// // print_r($result1);
-// if ($result1->num_rows > 0) {
-//     while($row = $result1->fetch_assoc()) {     
-//         $id=$row["user_id"];                 
-//     }
-//   }
-  $count = '';
-  $result='';
-  
-  if(isset($_POST['submit']))
-  {
-          $count = $_POST['count'];
-          // echo $count;
-          $stmt = $con->prepare("UPDATE water_tracker SET no_of_glasses = '$count' WHERE tracker_id='$id'");
-          $stmt->execute();
-  
-    }
+else{
+  $user=$_SESSION['username'];
+  $id=$_SESSION['id'];
+}  
+$conn = new mysqli('localhost', 'root', '', 'rfit');
+if ($conn->connect_error) {
+  die('Connection Failed : ' . $conn->connect_error);
+}
+
+if (isset($_POST['submit'])) {
+
+  $message = $_POST['message'];
+  // $name = $_POST['name'];
+
+
+  $sql = "INSERT INTO feedback(feedback_username, feedback_txt,feedback_user_id) 
+  VALUES('$user', '$message','$id')";
+  $res = mysqli_query($conn, $sql);
+
+
+}
+
 
 ?>
 
+
+
+
+
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RFIT</title>
+    <title>Feedback Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="homepage.css" type="text/css">
-    <link rel="stylesheet" href="welcome.css" type="text/css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;500&family=Sulphur+Point:wght@300&family=Suwannaphum&family=Tilt+Neon&display=swap"
         rel="stylesheet">
-        <style>
-body {
-  font-family: "Lato", sans-serif;
-}
+    <style>
+    body {
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* min-height: 100vh; */
+        font-family: "Lato", sans-serif;
+    }
 
-.sidebar {
+    input,
+    textarea {
+        display: block;
+        width: 300px;
+        font-size: 18px;
+        margin: 7px 20px;
+    }
+
+    label {
+        display: block;
+        padding: 2px 20px;
+    }
+    .sidebar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -105,11 +122,9 @@ body {
     visibility: visible;
 }
 .openbtn:hover {
-  /* background-color: #444; */
-}
-/* #btn1:hover{
   background-color: #444;
-} */
+}
+
 #main {
   transition: margin-left .5s;
   /* padding: 16px; */
@@ -120,41 +135,25 @@ body {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
-</style>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    </style>
 </head>
 
 <body>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <div style="padding-left:27px;">
-  <img src="images/pfp2.png" style="opacity:100%; width:150px;" alt="">
-  </div>
-
-  <a href="myacc.php">My Account</a>
-  <a href="weight_tracker.php">Weight Logs</a>
-  <!-- <a href="#">Exercise Diary</a> -->
-  <a href="feedback.php">Share Feedback</a>
-  <a href="logout.php">Logout</a>
-  <a href="#">Help</a>
+  <a href="#">My Account</a>
+  <a href="#">Weight Logs</a>
+  <a href="#">Exercise Diary</a>
+  <a href="feedback.html">Share Feedback</a>
+  <a href="homapage.html">Logout</a>
+  <a href="homapage.html#about">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">
   <!-- <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>    onclick="openNav()" -->
-  <div class="openbtn" id="openbtn">
-  <button id="btn1" style="background-color: #ff44a8;
-  color: white;
-  border: none;"
+  <button class="openbtn" id="openbtn" style="width:200px;"
   onclick="openNav()">☰</button>  
-  </div>
-
+  
   <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
   data-bs-target="#mySidebar" aria-controls="navbarsExample02" aria-expanded="true"
   aria-label="Toggle navigation"onclick="openNav()">☰ Open Sidebar</button>
@@ -183,58 +182,20 @@ function closeNav() {
 }
 </script>
 
-                <!-- <a class="navbar-brand" href="#" style="color: white; font-weight: 500; font-size: xx-large;">
-                    <img src="images/pink_logo.PNG" alt="logo" height="50vh" class="d-inline-block"
-                        style="display:block;float:right;">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#horizontalNavbar" aria-controls="navbarsExample02" aria-expanded="true"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse  justify-content-end" id="horizontalNavbar">
-                    <ul class="navbar-nav text-nowrap d-flex">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="#">ABOUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="food_tracker.html">FOOD</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">EXERCISE</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="signup.php"><span
-                                    class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="login.php"><span
-                                    class="glyphicon glyphicon-off"></span> LOGOUT</a></li>
-                    </ul>
-                </div> -->
+    <form method="post">
+        <label style="color: #ff44a8;font-size: 40px">Please share your Feedback</label>
+        <!-- <label style="color: #ff44a8;font-size: 30px">Name:</label>
+        <input type="text" placeholder="type your name here--" name="name"> -->
+        <?php
+        echo "Submitting feedback as ";
+        echo $user;
+        ?>
+        <label style="color: #ff44a8;font-size: 30px">Message:</label>
+        <textarea cols="500" rows="10" placeholder="Type here--" name="message"></textarea>
 
- 
- 
-
-
-        <div class="container-fluid">
-        <form>
-        <div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-primary fs-3"  type="button"><a href="food_tracker.php" style="color:white;">Track Meal</a></button>
-  <button class="btn btn-primary fs-3" type="button"><a href="exercise_tracker.php" style="color:white;">Track Exercise</a></button>
-</div>
-
-<br><br>
-           <h2> Water tracker</h2>
-  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-  <input type="number" id="number" value="0" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-
-  <button type="submit" name="submit" class="btn btn-dark">Submit</button>
-</form>
-
-                
-        </div>
-        <script type="text/javascript" src="welcome.js"></script>
-<!-- <footer> FIND FOOTER LATER ON follow us on instgagrhrjrjrj</footer> -->
-<footer class="text-center text-lg-start text-white" style="background-color: #000000">
+        <input type="submit" style="background-color: #ff44a8;" name="submit">
+    </form>
+    <footer class="text-center text-lg-start text-white" style="background-color: #000000">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
                 <!-- Section: Links -->
@@ -256,12 +217,11 @@ function closeNav() {
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
                                     mt-3">
                             <h6 class="text-uppercase mb-4
-                                        font-weight-bold">Trackers</h6>
-                            <p> <a class="text-white">Food Tracker</a>
+                                        font-weight-bold">Follow us</h6>
+                            <p> <a class="text-white" href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM=">Instagram</a>
                             </p>
-                            <p> <a class="text-white">Weight
-                                    Tracker</a> </p>
-                            <p> <a class="text-white">Water Tracker</a>
+                            <p> <a class="text-white" href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL" >Facebook</a> </p>
+                            <p> <a class="text-white" href="https://www.linkedin.com/in/bhavya-verma-754983247" >LinkedIn</a>
                             </p>
                         </div> <!-- Grid column -->
                         <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
@@ -272,10 +232,9 @@ function closeNav() {
                                         font-weight-bold" id="contact">Contact Us</h6>
                             <p><i class="fas fa-envelope mr-3"></i>
                                 helping_hand@gmail.com</p>
-                            <p><i class="fas fa-phone mr-3"></i> + 91
-                                9874568254</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 91 9892907159</p>
                             <p><i class="fas fa-print
-                                            mr-3"></i> + 91 9852471598</p>
+                                            mr-3"></i> + 91 9867929151</p>
                         </div> <!-- Grid column -->
                         <!-- Grid column -->
                         
@@ -283,8 +242,12 @@ function closeNav() {
                     <!--Grid row-->
                 </section> <!-- Section: Links -->
             </div> <!-- Grid container -->
-        </footer> <!-- Footer -->
-    <!-- End of .container -->
+        </footer>
+        <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </body>
 
 </html>

@@ -60,7 +60,7 @@ $height=$_SESSION['height'];
     // mysql_query($insert_query);
 // echo "hi1";
 // print_r($_SESSION);
-    $sql = "INSERT INTO `client`( `password`,`fname`, `email`,`username`,`lname`,`dob`, `gender`,`weight`, `height`) 
+    $sql = "INSERT INTO `client`( `password`,`fname`, `email`,`username`,`lname`,`dob`, `gender`,`weight`, `height`,`date_of_joining`) 
     VALUES (
      '$hash',  
      '$fname',     
@@ -70,7 +70,9 @@ $height=$_SESSION['height'];
     '$dob',
     '$gender',
     '$weight', 
-    '$height')";
+    '$height',
+    current_timestamp()
+    )";
 $result = mysqli_query($conn, $sql);
 
 // session_destroy();  
@@ -78,7 +80,7 @@ if ($result){
 // session_start();
 // session_unset();
 // session_destroy();
-$sql1="SELECT height,weight FROM `client` WHERE username='$user'";
+$sql1="SELECT height,weight,user_id,gender,date_of_joining FROM `client` WHERE username='$user'";
 $result1 = mysqli_query($conn, $sql1);
 // print_r($result1);
 if ($result1->num_rows > 0) {
@@ -86,12 +88,50 @@ if ($result1->num_rows > 0) {
 
          $ht= $row["height"]; 
           $wt=$row["weight"]; 
-        //   $g=$row["gender"];               
+        //   $g=$row["gender"];      
+        $id=$row["user_id"];          
+        $g=$row["gender"]; 
+        $joined=$row["date_of_joining"];          
     }
     // echo $ht;
     // echo $wt;
     // echo $g;
     $bmi=($wt*10000)/($ht*$ht);
+    $underwt=18.5*($ht*$ht)/10000;
+    $overwt=24.9*($ht*$ht)/10000;
+    if($bmi<18.5){
+        $t_wt=$underwt;
+        if($g=="F"){
+            $cal_limit=2500;
+            $ex_limit=320;
+        }
+        else{
+            $cal_limit=3100;
+            $ex_limit=350;
+        }
+    }
+    elseif($bmi>24.9){
+        $t_wt=$overwt;
+        if($g=="F"){
+            $cal_limit=1450;
+            $ex_limit=500;
+        }
+        else{
+            $cal_limit=1950;
+            $ex_limit=500;
+        }
+    }
+    else{
+        if($g=="F"){
+            $cal_limit=2000;
+            $ex_limit=450;
+        }
+        else{
+            $cal_limit=2500;
+            $ex_limit=435;
+        }
+    }
+}
     ?>
  
 <!DOCTYPE html>
@@ -101,7 +141,7 @@ if ($result1->num_rows > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete sign-up</title>
+    <title>Registered succesfully</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
         <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -137,7 +177,7 @@ if ($result1->num_rows > 0) {
     <section class="h-100" style="display:flex; justify-content: center; ">
     <div class="row row-cols-md-2 row-cols-1">
                 <div class="col" style="padding-top:3%; padding-right: 2%; padding-bottom:1%; ">
-                    <img src="undraw_exciting_news_re_y1iw.svg" alt="" width="62%">
+                    <img src="images/undraw_exciting_news_re_y1iw.svg" alt="" width="62%">
                 </div>
                 <div class="col" style="padding-top:15%;  padding-right: 0px;">
                     <!-- <div class="container"> -->
@@ -148,7 +188,7 @@ if ($result1->num_rows > 0) {
     <div class="fs-3">
     <?php
     echo "<br>";
-    echo "Your BMI is:";
+    echo "Your BMI is: ";
     echo $bmi;
     echo "<br>";
     echo "The healthy BMI range for adults is 18.5-24.9.";
@@ -157,27 +197,53 @@ if ($result1->num_rows > 0) {
         $target="Gain Weight";
         $sql2="UPDATE `client` SET `target`='$target' WHERE `client`.`username`='$user'";
         $result2 = mysqli_query($conn, $sql2);
-        echo "Since your bmi falls in the underweight range, we are setting you target as-";
+        echo "Since your bmi falls in the underweight range, we are setting your target as-";
         echo $target;
+        //need target weitgh
+        $sql11="INSERT INTO `food_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$cal_limit')";
+        $result11 = mysqli_query($conn, $sql11);
+        $sql12="INSERT INTO `exercise_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$ex_limit')";
+        $result12 = mysqli_query($conn, $sql12);
+        $sql13="INSERT INTO `weight_tracker`( `tracker_id`, `target_weight`,`updated_on`,`weight`) 
+        VALUES ('$id', '$t_wt','$joined','$weight')";
+        $result13 = mysqli_query($conn, $sql13);
+        $sql14="INSERT INTO `water_tracker`( `tracker_id`) VALUES ('$id')";
+        $result14 = mysqli_query($conn, $sql14);
     }
     elseif ($bmi>24.9) {
         $target="Lose Weight";
         $sql2="UPDATE `client` SET `target`='$target' WHERE `client`.`username`='$user'";
         $result2 = mysqli_query($conn, $sql2);
-        echo "Since your bmi falls in the overweight range, we are setting you target as-";
+        echo "Since your bmi falls in the overweight range, we are setting your target as-";
         echo $target;
+        $sql11="INSERT INTO `food_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$cal_limit')";
+        $result11 = mysqli_query($conn, $sql11);
+        $sql12="INSERT INTO `exercise_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$ex_limit')";
+        $result12 = mysqli_query($conn, $sql12);
+        $sql13="INSERT INTO `weight_tracker`( `tracker_id`, `target_weight`,`updated_on`,`weight`) 
+        VALUES ('$id', '$t_wt','$joined','$weight')";
+        $result13 = mysqli_query($conn, $sql13);
+        $sql14="INSERT INTO `water_tracker`( `tracker_id`) VALUES ('$id')";
+        $result14 = mysqli_query($conn, $sql14);
     }
     else{
         $target="Maintain Weight";
         $sql2="UPDATE `client` SET `target`='$target' WHERE `client`.`username`='$user'";
         $result2 = mysqli_query($conn, $sql2);
-        echo "Your bmi is in the healthy range! We are setting you target as-";
+        echo "Your bmi is in the healthy range! We are setting your target as-";
         echo $target;
+        $sql11="INSERT INTO `food_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$cal_limit')";
+        $result11 = mysqli_query($conn, $sql11);
+        $sql12="INSERT INTO `exercise_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$ex_limit')";
+        $result12 = mysqli_query($conn, $sql12);
+        $sql13="INSERT INTO `weight_tracker`( `tracker_id`, `target_weight`,`updated_on`,`weight`) 
+        VALUES ('$id', '$t_wt','$joined','$weight')";
+        $result13 = mysqli_query($conn, $sql13);
+        $sql14="INSERT INTO `water_tracker`( `tracker_id`) VALUES ('$id')";
+        $result14 = mysqli_query($conn, $sql14);
     }
  } 
-    // header("Location:homepage.html");
-    // <pre>Successfully Registered</pre>
-}
+
 echo "<br>";
     ?>
     <br>

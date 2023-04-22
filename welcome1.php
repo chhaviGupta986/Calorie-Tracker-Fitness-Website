@@ -11,10 +11,14 @@
 // $servername='localhost';
 // $username="root";
 // $password="";
-include 'connect.php';
+require 'connect.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+
 try
 {
-    $con=new PDO("mysql:host='localhost';dbname=rfit",'root','');
+    $con=new PDO("mysql:host=$servername;dbname=rfit",$username,$password);
     $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //echo 'connected';
 }
@@ -22,19 +26,30 @@ catch(PDOException $e)
 {
     echo '<br>'.$e->getMessage();
 }
-echo "hello";
+$count = '';
+$result='';
+$user=$_SESSION['username'];
+$sql1="SELECT user_id FROM `client` WHERE username='$user'";
+$result1 = mysqli_query($conn, $sql1);
+// print_r($result1);
+if ($result1->num_rows > 0) {
+    while($row = $result1->fetch_assoc()) {     
+        $id=$row["user_id"];                 
+    }
+  }
 if(isset($_POST['submit']))
 {
-  echo "inside isset";
-    
-      echo "inside empty";
-        $count = $_POST['increment'];
-        $stmt = $con->prepare("UPDATE water_tracker SET no_of_glasses = $count");
+  // echo "inside isset";
+   
+      // echo "inside empty";
+
+        $count = $_POST['count'];
+        // echo $count;
+        $stmt = $con->prepare("UPDATE water_tracker SET no_of_glasses = '$count' WHERE tracker_id='$id'");
         $stmt->execute();
-        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-         
-    
+
   }
+
 
 ?>
 
@@ -53,7 +68,7 @@ if(isset($_POST['submit']))
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
         </script>
     <link rel="stylesheet" href="homepage.css" type="text/css">
-    <link rel="stylesheet" href="welcome1.css" type="text/css">
+    <link rel="stylesheet" href="welcome.css" type="text/css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,7 +230,7 @@ function closeNav() {
         <h1>TRACKERS</h1>
         <form method="POST">
         <div class="container-fluid">
-        <form>
+        
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
             <div class="card h-100"> <img src="apple1.png" class="card-img-top" alt="..." style="width: 49%; align-self:
@@ -238,24 +253,28 @@ function closeNav() {
         </div>
     </div>
 </div>
-  
-</div>
-
-<br><br>
 <div class="col">
-                            <div class="card h-100"> <img src="water.jpg" class="card-img-top" alt="..." style="width: 48%;
-                                        align-self:center; margin-top:
-                                        1.5%;margin-bottom: 2%; margin-right:
-                                        0%; padding-right: 0%;">
-                                <div class="card-body">
-                                    <h2 class="card-title">Water Tracker</h2>
-                                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-  <input type="number" id="number" value="0" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="$count" name="increment">+</div><br>
+    <div class="card h-100" style="width: 150%"> <img src="water.jpg" class="card-img-top" alt="..." style="width: 48%;
+                align-self:center; margin-top:
+                1.5%;margin-bottom: 2%; margin-right:
+                0%; padding-right: 0%;">
+        <div class="card-body">
+            <h2 class="card-title">Water Tracker</h2>
+            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+  <input  type="number" id="number" value="0" name="count" />
+ <div class="value-button" id="increase" onclick="increaseValue()"  name="increment">+</div><br>
+   <!-- <div><button class="value-button" type="button" name="increment" onclick="increaseValue()">+</button></div> -->
   <button type="submit" name="submit" class="btn btn-dark">Submit</button>
-                                </div>
-                            </div>
-                        </div>
+        </div>
+       <!-- <div class="input-group mb-3" style="width: 130px;padding-left: 45px">
+  <input type="button" class="input-group-text decrement-btn" name="minus"  onclick="decrease()">-</button>
+  <input type="text" class="form-control fs-3 text-center bg-white" disabled id="number" placeholder="0" >
+  <input type="button" class="input-group-text increment-btn" name="add"  onclick="increase()">+</button><br>
+  <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+</div> -->
+    </div>
+</div>
+</div>                      
   
 </form>
 
@@ -263,6 +282,59 @@ function closeNav() {
         </div>
         <script type="text/javascript" src="welcome.js"></script>
 <!-- <footer> FIND FOOTER LATER ON follow us on instgagrhrjrjrj</footer> -->
+ <!-- <div class="container my-5"> -->
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-white" style="background-color: #000000">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <section class="">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-3
+                                    col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h6 class="text-uppercase mb-4
+                                        font-weight-bold" id="about">About RFIT </h6>
+                            <p> This
+                                website is basically a fitness website
+                                which has some amazing features like
+                                food tracker, weight tracker and water
+                                tracker. </p>
+                        </div> <!-- Grid column -->
+                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
+                                    mt-3">
+                            <h6 class="text-uppercase mb-4
+                                        font-weight-bold">Trackers</h6>
+                            <p> <a class="text-white">Food Tracker</a>
+                            </p>
+                            <p> <a class="text-white">Weight
+                                    Tracker</a> </p>
+                            <p> <a class="text-white">Water Tracker</a>
+                            </p>
+                        </div> <!-- Grid column -->
+                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
+                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto
+                                    mt-3">
+                            <h6 class="text-uppercase mb-4
+                                        font-weight-bold" id="contact">Contact Us</h6>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                helping_hand@gmail.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 91
+                                9874568254</p>
+                            <p><i class="fas fa-print
+                                            mr-3"></i> + 91 9852471598</p>
+                        </div> <!-- Grid column -->
+                        <!-- Grid column -->
+                        
+                    </div>
+                    <!--Grid row-->
+                </section> <!-- Section: Links -->
+            </div> <!-- Grid container -->
+        </footer> <!-- Footer -->
+    <!-- End of .container -->
 </body>
 
 </html>
