@@ -24,7 +24,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION['username'] = $username;
                 $_SESSION['id'] = $id;
                 $_SESSION['role'] = $role;
-                header("location: welcome.php");
+                if($role=="admin"){
+                    header("location: admindash.php");
+                }
+                elseif($role=="user"){
+                    header("location: welcome.php");
+                }
+                else{
+                    die("UNEXPECTED ERROR!");
+                }
             } 
             else{
                 $showError = "Invalid Credentials";

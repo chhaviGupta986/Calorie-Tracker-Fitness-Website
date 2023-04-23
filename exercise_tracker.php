@@ -21,7 +21,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 }
 else{
   $user=$_SESSION['username'];
-  
+  $id=$_SESSION['id'];
 }    
 
 
@@ -47,7 +47,29 @@ if(isset($_POST['submit']))
         $searchErr = "Please enter the information";
     }
 }
+if(isset($_POST['addex']))
+// if(!empty($_POST['addex']))
+{   
+  echo $_POST['addex'];
+        $display=false;
+        $addex = $_POST['addex'];
+        $stmt2 = $con->prepare("update exercise_tracker set cals=cals+'$addex' where tracker_id='$id'");
+        $stmt2->execute();
+        $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+        // if($result2)
+        // {
+           echo '<script>alert("'.$addex.' calories were added to your daily calorie budget!");
+           </script>';
+          //  echo '<script>alert(';
+          //  echo $addex;
+          //  echo '"calories were added to your daily calorie budget!");
+          //  </script>';
+          // echo '<script language="javascript">';
+          // echo 'alert("message successfully sent")';
+          // echo '</script>';
 
+        // }
+}
 if(isset($_POST['calc']))
 {
 
@@ -141,6 +163,19 @@ color:grey;
   #calc:hover {
     background-color: lightpink;
   }
+  #addex{
+    /* background-color: #ff44a8; */
+    background-color: lightpink;
+    /* color: white; */
+    /* color: #ff44a8; */
+    border-color:#ff44a8;
+    margin-left:5%;
+  }
+  #addex:hover {
+    /* background-color: lightpink; */
+    background-color: white;
+    color:#ff44a8;
+  }
 </style>
 
 
@@ -164,8 +199,10 @@ color:grey;
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="welcome.php">HOME</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="signup.html"><span
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="myacc.php"><span
                             class="glyphicon glyphicon-user"></span>PROFILE</a></li>
+                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
+                            class="glyphicon glyphicon-user"></span>HELP</a></li>
                 <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="logout.php"><span
                             class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
             </ul>
@@ -182,8 +219,8 @@ color:grey;
   </div> -->
   </form>
   <form method="POST" >
-  <input type="text" class="form-control fs-4" value="" id="item_name" name="item_name" 
-  style="color: #ff44a8; border:none;" hidden>
+  <input type="text" class="form-control fs-3" value="" id="item_name" name="item_name" 
+  style="color: #ff44a8; border:none;" hidden readonly>
     <div class="input-group mb-2" style="width: 100%; border-style: outset;">
   <span class="input-group-text fs-3" id="inputGroup-sizing-lg" >How many minutes?</span>
   <!-- <button class="btn btn-outline-secondary " type="button"  aria-expanded="false">Units</button> -->
@@ -219,8 +256,14 @@ color:grey;
     echo "You burnt ";
     echo $calculated_Cal;
     echo " Calories!";
+    ?> 
+    <button type="submit" name="addex" value="<?php echo $calculated_Cal; ?>" class="btn fs-3" id="addex"> 
+     Add
+        </button>
+    <?php  
   }
   ?> 
+      
 </div>
 <br>
 
@@ -300,13 +343,6 @@ else{
   ?>
 
 <script>
-  function calories(){
-  var qty_entered = document.getElementById("qty").value;
-  console.log(qty_entered);
-  console.log(unit);
-  console.log(item);
-}
-
 function activate(clicked_id){
   document.getElementById("qty").disabled=false;
   let btn = document.getElementById(clicked_id);

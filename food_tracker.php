@@ -49,20 +49,25 @@ if(isset($_POST['submit']))
 }
 if(isset($_POST['addmeal']))
 // if(!empty($_POST['addmeal']))
-{        echo "addmeal is set";
+{   
+  // echo $_POST['addmeal'];
   if($logged_in){
         $display=false;
         $addmeal = $_POST['addmeal'];
-        $stmt2 = $con->prepare("update food_tracker set cals='$addmeal' where tracker_id='$id'");
+        $stmt2 = $con->prepare("update food_tracker set cals=cals+'$addmeal' where tracker_id='$id'");
         $stmt2->execute();
         $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         // if($result2)
         // {
-           echo '<script>alert("'.$addmeal.' calories were added to your daily calorie budget!");
-           </script>';
-        // }
+          echo '<script>alert("'.$addmeal.' calories were added to your daily calorie budget!");
+          </script>';
+          //  echo '<script>alert(';
+          //  echo $addmeal;
+          //  echo '"calories were added to your daily calorie budget!");
+          //  </script>';
 
-        echo "hi";
+
+        // }
 }
 else{
   echo '<script>alert("You must login to avail this feature!");
@@ -76,13 +81,14 @@ if(isset($_POST['calc']))
     if(!empty($_POST['qty_input']))
     {   
         $qty = $_POST['qty_input'];//user entered qty
-        $unit = $_POST['dropdown'];
+        $unit1 = $_POST['dropdown'];
         // $stmt1 = $con->prepare("select * from food_data where food_items = '$qty'");
         // $stmt1->execute();
         // $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         // $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         $item = $_POST['item_name'];//user entered item
-        $stmt1 = $con->prepare("select quantity,calorie from food_data where food_items = '$item' and unit='$unit'");
+        $stmt1 = $con->prepare("select quantity,calorie,unit from food_data where 
+        food_items = '$item' and unit='$unit1'");
         $stmt1->execute();
         // $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
@@ -131,6 +137,9 @@ if(isset($_POST['calc']))
   }
   .foodbtn:hover{
 color:grey;
+  }
+  #dropdown{
+    /* background-color: lightpink; */
   }
   #back{
     float:right;
@@ -192,13 +201,16 @@ color:grey;
                 </li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="myacc.php"><span
                             class="glyphicon glyphicon-user"></span>PROFILE</a></li>
-                <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="#"><span
+                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
+                            class="glyphicon glyphicon-user"></span>HELP</a></li>
+                <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="logout.php"><span
                             class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
             </ul>
         </div>
     </div>
 </nav>
- <form method="POST" action="#">
+<!-- action="#" -->
+ <form method="POST" >
   <div style="width: 50%;  border-style:outset; margin-left: 25%;margin-right: 25%;margin-top: 2%; ">
   <div class="input-group mb-2" style="width: 100%;  border-style:outset;">
     <input type="text" class="form-control fs-3" placeholder="Search for a food item" name="search" style="" aria-label="Search food" aria-describedby="basic-addon2" >
@@ -207,63 +219,23 @@ color:grey;
     <!-- <div id="item_name" class="fs-3" style="color: #ff44a8;" hidden>
   </div> -->
   </form>
-  <form method="POST" >
-  <input type="text" class="form-control fs-4" value="" id="item_name" name="item_name" 
-  style="color: #ff44a8; border:none;" hidden>
+  <form method="POST" action="#">
+  <input type="text" class="form-control fs-3" value="" id="item_name" name="item_name" 
+  style="color: #ff44a8; border:none;" hidden readonly>
     <div class="input-group mb-3" style="width: 100%; border-style: outset;">
   <span class="input-group-text fs-3" id="inputGroup-sizing-lg" > Quantity</span>
   <!-- <button class="btn btn-outline-secondary " type="button"  aria-expanded="false">Units</button> -->
   <input type="number" class="form-control fs-3" pattern="^[0-9]" id="qty" name="qty_input"
   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" disabled>
-  <select name="dropdown" class="fs-3" id="dropdown" value="" disabled>
+  <!-- javascript writes into id dropdown and php gets value from name dropdown so both
+are necesssary in both buttons lawl -->
+  <input name="dropdown" class="dropdown1" type="text" class="fs-3 border b-0 fw-bold" value="" hidden>
+  <!-- disabled one is just for show and hidden one is for value. bcus disabled ka input doesnt go in post -->
+  <input name="dropdown" class="dropdown1" type="button" class=" fs-3" value="unit"
+  style="border-style:none; background-color:white">
   </div>
 
-  </div>
-
- 
-
-  
-<!-- <div class="input-group mb-3"> -->
-
-  <?php
-                      $uniques=array();
-  foreach($result as $key=>$value)
-  {
-               if ( in_array($value['unit'], $uniques) ) {
-                        continue;
-                    }
-
-                    $uniques[] =$value['unit'];
-                    $option_val=$value['unit'];
-      ?>
-      <option class="fs-3"
-      value="<?php echo $option_val;?>">
-          <?php echo $option_val;?>
-
-    
-    </option>
-
-      <?php
-
-       ?>
-
-    <?php
-  }
-  ?>
-    </select>
-
-  <?php
-if (is_array($result) || is_object($result))
-{
-    foreach ($result as $key=>$value)
-    {
-      ?>
-      <?php
-    }
-}
-?>
-
-
+  </div> 
 
 </div>
     <!-- <button type="submit" name="submit" class="btn btn-dark" >Calculate</button> -->
@@ -278,7 +250,7 @@ if (is_array($result) || is_object($result))
     echo " Calories!"; 
     ?> 
     <!-- <div> -->
-    <button type="submit" name="addmeal" value="<?php$calculated_Cal?>" class="btn fs-3" id="addmeal"> 
+    <button type="submit" name="addmeal" value="<?php echo $calculated_Cal; ?>" class="btn fs-3" id="addmeal"> 
      Add
         </button>
     <!-- </div> -->
@@ -299,8 +271,8 @@ if (is_array($result) || is_object($result))
             <th>Sr. no.</th>
             <th>FOOD ITEM</th>
             <!-- <th>QUANTITY</th>
-            <th>CALORIE</th>
-            <th>UNIT</th> -->
+            <th>CALORIE</th>-->
+            <th>UNIT</th> 
           </tr>
         </thead>
         <tbody>
@@ -311,34 +283,46 @@ if(!$result)
    echo '<tr>No data found</tr>';
 }
 else{
-  $uniques1=array();
+  // $uniques1=array();
    foreach($result as $key=>$value)
    {
-    ?>
-    <?php
-    if ( in_array($value['food_items'], $uniques1) ) {
-      continue;
-  }
-  $uniques1[] =$value['food_items'];
+    // if ( in_array($value['food_items'], $uniques1) ) {
+    //   continue;
+  
+  // $uniques1[] =$value['food_items'];
   $food=$value['food_items'];
-  $index++;
-       ?>
+  $unit=$value['unit'];
+  // $foodunit=array($food,$unit);
+  ?>
+
+  <!-- // $index++; -->
+       <!-- ?> -->
    <tr>
        <td><?php 
-      //  echo $key+1;
-      echo $index;
+       echo $key+1;
+      // echo $index;
+      $minuskey=-($key)-1;
        ?></td>
        <td>
-<!-- warning:id for repeated button -->
-         <button type="button" onclick="activate(this.id)"  id="<?php echo $index;?>"
-         class="foodbtn" value="<?php echo $food;?>">
-         <?php echo $food;?>
+  <button type="button" onclick="activate(this.id)"  
+  class="foodbtn" value="<?php echo $food;?>" id="<?php echo $key+1;?>">
+  <?php echo $food;?>
+  </button>
 
-       </button>
+<!-- warning:id for repeated button echo $index;
+id="-->
+
      </td>
-
+     <td>
+     <input type="text" class="form-control fs-4" value="<?php echo $unit;?>" 
+     id="<?php echo $minuskey;?>" name="unit_input" hidden>
+      <?php 
+      echo $unit;
+      // echo $value['unit'];
+      // $unit=$value['unit'];
+      ?>
+    </td> 
    </tr>
-        
        <?php
        $arr = array($value['unit']);
 
@@ -349,8 +333,9 @@ else{
 </table>
 
     </div>
-    </div>  
-    <button type="submit" name="calc" class="btn fs-3" id="calc" onclick="calories()" hidden> 
+    </div>
+    <!-- onclick="calories()"   -->
+    <button type="submit" name="calc" class="btn fs-3" id="calc"  hidden> 
      Calculate Calories
         </button>
 </form>

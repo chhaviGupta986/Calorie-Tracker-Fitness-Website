@@ -24,7 +24,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 <!DOCTYPE html>
-<html lang="en>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,24 +33,20 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="feedshow.css" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;500&family=Sulphur+Point:wght@300&family=Suwannaphum&family=Tilt+Neon&display=swap"
+        rel="stylesheet"> 
 </head>
 <body>
 
 <section class="main">
-        <svg id="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ff44a8" fill-opacity="1"
-                d="M0,160L34.3,181.3C68.6,203,137,245,206,224C274.3,203,343,117,411,112C480,107,549,181,617,213.3C685.7,245,754,235,823,218.7C891.4,203,960,181,1029,160C1097.1,139,1166,117,1234,138.7C1302.9,160,1371,224,1406,256L1440,288L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
-            </path>
-        </svg><!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#03794E" fill-opacity="1"
-                d="M0,192L26.7,170.7C53.3,149,107,107,160,106.7C213.3,107,267,149,320,160C373.3,171,427,149,480,165.3C533.3,181,587,235,640,256C693.3,277,747,267,800,229.3C853.3,192,907,128,960,122.7C1013.3,117,1067,171,1120,192C1173.3,213,1227,203,1280,197.3C1333.3,192,1387,192,1413,192L1440,192L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z">
-            </path>
-        </svg> -->
-        <!-- fixed-top -->
         <nav class="navbar  navbar-expand-md" id="main_nav" aria-label="Second navbar example">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="#" style="color: white; font-weight: 500; font-size: xx-large;">
-                    <img src="logo.PNG" alt="Logo" height="50vh" class="d-inline-block"
+                    <img src="images/logo.PNG" alt="Logo" height="50vh" class="d-inline-block"
                         style="padding-right:0vh ; padding-bottom: 0.1em; margin: 0px,0px,0px,0px;">
 
                     <h2
@@ -65,108 +61,84 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="collapse navbar-collapse  justify-content-end" id="horizontalNavbar">
                     <ul class="navbar-nav text-nowrap d-flex">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="#homepage.html#about">ABOUT</a>
+                            <a class="nav-link " aria-current="page" href="about.html">ABOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="food_tracker.html">FOOD</a>
+                            <a class="nav-link" aria-current="page" href="food_tracker.php">FOOD</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">EXERCISE</a>
+                            <a class="nav-link" aria-current="page" href="exercise_tracker.php">EXERCISE</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="signup.php"><span
                                     class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="login.php"><span
-                                    class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page"
+                                href="login.php"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container-fluid">
-            <div class="row row-cols-md-2 row-cols-1">
-                <div class="col medi" style="padding-top:6%; padding-right: 7%; margin-bottom: 0%; ">
-                <h1>FEEDBACKS</h1>
+            <!-- <div class="row row-cols-md-2 row-cols-1"> -->
+            <div class="d-flex justify-content-center" style="font-size:4rem; color:#ff44a8; 
+      background-color: rgba(211, 211, 211, 0.324);">Feedbacks by Our Users</div>
+        <div class="container-fluid">
+            <div class="row row-cols-md-2 row-cols-1" style="padding-top:0%;">
+                <div class="col" style="padding-top:0%; padding-left: 4%; margin-bottom: 5%; ">
+                    <img src="images/for feedback if u need in future.svg" alt="" width="80%">
                 </div>
-</div>
-    <div class="table-responsive">          
-      <table class="table table-striped table-bordered" style="background-color: pink;border: 4px;border-style: dashed;border-color: darkgreen;">
-        <thead>
-          <tr>
-            <th>Sr. no.</th>
-            <th>feedback</th>
-
+<div class="col" style=" padding-right: 2%; padding-top:3%;">
+    <!-- <div class="table-responsive">           -->
+      <!-- <table class="table table-striped table-bordered" style="background-color: pink;border: 4px;border-style: dashed;border-color: darkgreen;"> -->
+        <!-- <thead> -->
+          <!-- <tr> -->
+            <!-- <th>Sr. no.</th>
+            <th>feedback</th> -->
+<!-- 
           </tr>
         </thead>
-        <tbody>
+        <tbody> -->
                 <?php
                 
                  
                     foreach($result as $key=>$value)
                     {
-                        ?>
-                    <tr>
-                        <td><?php echo $key+1;?></td>
-                        <td><?php echo $value['feedback_txt'];?></td>
 
-                    </tr>
+$text=$value['feedback_txt']; $date=$value['feedback_date'];$user=$value['feedback_username'];
+                        echo '<div class="card p-1 fs-3" style="border-radius:25px;
+                        border-width:2px; border-style:solid; border-color:#ff44a8;">
+                        <div style="margin-left:15px;">@
+                        '. $user.' says
+                        </div>
+                        <div class="card-body fs-1">
+                          <blockquote class=" mb-0">
+                            <p>'. $text.'</p>
+                            <footer class="blockquote-footer fs-4">
+                            '. $date.'</footer>
+                            </blockquote>
+                        </div>
+                      </div><br>
+                      '; 
+                        ?>
+                    <!-- <tr> -->
+                        <!-- <td><?php echo $key+1;?></td>
+                        <td><?php echo $value['feedback_txt'];?></td>
+                        <td><?php echo $value['feedback_date'];?></td>
+                        <td><?php echo $value['feedback_user'];?></td> -->
+                        
+
+                    <!-- </tr> -->
                      <?php    
   
                  }
                 ?>
-             
+<!--              
          </tbody>
-      </table>
+      </table> -->
     </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2" style="background-color: #ff44a8" type="button"><a href="homepage.html" style="color:white;text-decoration: none" >Home</a></button>
-  <button class="btn btn-primary me-md-5" style="background-color: #ff44a8" type="button"><a href="feedback.php" style="color: white;text-decoration: none;"> Add feedback</a></button>
-</div><br>
-    <footer class="text-center text-lg-start text-white " style="background-color: #000000;position: relative;">
-            <!-- Grid container -->
-            <div class="container p-4 pb-0">
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-3
-                                    col-lg-3 col-xl-3 mx-auto mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold" id="about">About RFIT </h6>
-                            <p> This
-                                website is basically a fitness website
-                                which has some amazing features like
-                                food tracker, weight tracker and water
-                                tracker. </p>
-                        </div> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
-                                    mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold">Follow us</h6>
-                            <p> <a class="text-white" href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM=">Instagram</a>
-                            </p>
-                            <p> <a class="text-white" href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL" >Facebook</a> </p>
-                            <p> <a class="text-white" href="https://www.linkedin.com/in/bhavya-verma-754983247" >LinkedIn</a>
-                            </p>
-                        </div> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto
-                                    mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold" id="contact">Contact Us</h6>
-                            <p><i class="fas fa-envelope mr-3"></i>
-                                helping_hand@gmail.com</p>
-                            <p><i class="fas fa-phone mr-3"></i> + 91 9892907159</p>
-                            <p><i class="fas fa-print
-                                            mr-3"></i> + 91 9867929151</p>
-                        </div> <!-- Grid column -->
-                        <!-- Grid column -->
-                        
-                    </div>
-                    <!--Grid row-->
-                </section> <!-- Section: Links -->
-            </div> <!-- Grid container -->
-        </footer>
+<br>
+                </div>
+            </div>
+                
+    
 </body>
 </html>

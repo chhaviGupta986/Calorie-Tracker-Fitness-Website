@@ -7,23 +7,55 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 }
 $user=$_SESSION['username'];
 $id=$_SESSION['id'];
-// $sql1="SELECT user_id FROM `client` WHERE username='$user'";
-// $result1 = mysqli_query($conn, $sql1);
-// // print_r($result1);
-// if ($result1->num_rows > 0) {
-//     while($row = $result1->fetch_assoc()) {     
-//         $id=$row["user_id"];                 
-//     }
-//   }
-  $count = '';
-  $result='';
+$sql1="SELECT * FROM `food_tracker` WHERE tracker_id='$id'";
+$result1 = mysqli_query($conn, $sql1);
+if ($result1->num_rows > 0) {
+    while($row = $result1->fetch_assoc()) {     
+        $target_food=$row["target_cals"];                 
+        $cals_food=$row["cals"];                 
+    }
+  }
+$sql2="SELECT * FROM `exercise_tracker` WHERE tracker_id='$id'";
+$result2 = mysqli_query($conn, $sql2);
+if ($result2->num_rows > 0) {
+    while($row = $result2->fetch_assoc()) {     
+        $target_exercise=$row["target_cals"];                 
+        $cals_exercise=$row["cals"];                 
+    }
+  }
+$sql3="SELECT * FROM `water_tracker` WHERE tracker_id='$id'";
+$result3 = mysqli_query($conn, $sql3);
+if ($result3->num_rows > 0) {
+    while($row = $result3->fetch_assoc()) {     
+        $no_of_glasses=$row["no_of_glasses"];                                 
+    }
+  }
+$sql4="SELECT * FROM `weight_tracker` WHERE tracker_id='$id'";
+$result4 = mysqli_query($conn, $sql4);
+if ($result4->num_rows > 0) {
+    while($row = $result4->fetch_assoc()) {   
+        if($row["target_weight"]!=NULL){
+          $target_weight=$row["target_weight"]; 
+        }
+        $current_weight=$row["weight"];                      
+    }
+  }
+  // $count = '';
+  // $result='';
   
   if(isset($_POST['submit']))
   {
-          $count = $_POST['count'];
+          $water = $_POST['water'];
           // echo $count;
-          $stmt = $con->prepare("UPDATE water_tracker SET no_of_glasses = '$count' WHERE tracker_id='$id'");
-          $stmt->execute();
+          $sql5="UPDATE `water_tracker` SET `no_of_glasses`='$water' WHERE `water_tracker`.`tracker_id`='$id'";
+          $result5 = mysqli_query($conn, $sql5);
+          if ($result5) {
+              // while($row = $result5->fetch_assoc()) {     
+              //     $no_of_glasses=$row["no_of_glasses"];                                 
+              // }
+          }
+          // $stmt = $con->prepare("UPDATE water_tracker SET no_of_glasses = '$count' WHERE tracker_id='$id'");
+          // $stmt->execute();
   
     }
 
@@ -54,8 +86,12 @@ $id=$_SESSION['id'];
         <style>
 body {
   font-family: "Lato", sans-serif;
+  /* max-width:100%; */
 }
-
+html{
+  max-width:100%;
+  overflow-x:hidden;
+}
 .sidebar {
   height: 100%;
   width: 0;
@@ -115,6 +151,29 @@ body {
   /* padding: 16px; */
 }
 
+.card-body{
+  background-color: lightpink;
+}
+.card-body p{
+  font-size:xx-large;
+  font-weight:1000;
+  display:inline;
+}
+.button{
+  background-color:#ff44a8;
+  /* border-color:lightpink; */
+}
+.button a{
+  color:black;
+  text-decoration:none;
+}
+.button:hover{
+   /* border-color:lightpink; */
+  background-color:white;
+}
+.value-button{
+  /* position:relative; */
+}
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -132,6 +191,7 @@ integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE
 </head>
 
 <body>
+<section class="main">
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <div style="padding-left:27px;">
@@ -143,7 +203,7 @@ integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE
   <!-- <a href="#">Exercise Diary</a> -->
   <a href="feedback.php">Share Feedback</a>
   <a href="logout.php">Logout</a>
-  <a href="#">Help</a>
+  <a href="help_user.php">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">
@@ -151,10 +211,21 @@ integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE
   <div class="openbtn" id="openbtn">
   <button id="btn1" style="background-color: #ff44a8;
   color: white;
-  border: none;"
+  border: none; font-size:x-large;"
   onclick="openNav()">☰</button>  
-  </div>
 
+  <a class="navbar-brand" href="welcome.php" style="color: white; font-weight: 500; 
+  font-size: x-large; float:right">
+
+<h2 style="display: inline; font-family: 'Sulphur Point', 
+sans-serif; font-size: xx-large; font-weight: bold; margin-right:10px">
+                        RFiT</h2>
+                        <img src="images/logo.PNG" alt="Logo" height="40vh" class="d-inline-block"
+                        style="padding-right:0vh ; padding-top:0vh ;padding-bottom: 0.2em;">
+                        
+
+                </a>
+  </div>
   <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
   data-bs-target="#mySidebar" aria-controls="navbarsExample02" aria-expanded="true"
   aria-label="Toggle navigation"onclick="openNav()">☰ Open Sidebar</button>
@@ -209,20 +280,130 @@ function closeNav() {
                                     class="glyphicon glyphicon-off"></span> LOGOUT</a></li>
                     </ul>
                 </div> -->
-
+                <div>
  
+ <div class="row row-cols-md-2 p-5 gx-5">
+       
+     <div class="col w-25"> 
+             <div class="card h-100">
+                 
+                 <img src="images/apple1.png" class="card-img-top" alt="..."
+                     style="width: 87%; align-self: center;">
+                 <div class="card-body">
+                     <h2 class="card-title">Food Tracker</h2>
+                     <!-- <h1><?php echo $cals_food."/".$target_food; ?></h1> -->
+                     <p style="color:#ff44a8;"><?php echo $cals_food?></p>
+                 <p ><?php echo "/".$target_food; ?></p>
+                     <div class="card-text"> calories eaten</div>
+                     <br><br>
+        <button class=" fs-3 fw-bold button"  type="button">
+        <a href="food_tracker.php">Add Meal</a></button>
+  
+                 </div>
+                 
+             
+             </div>
+         
+     </div>
+     <div class="col w-25">
+         <div class="card h-100">
+             <img src="images/ex_Tracker1.png" class="card-img-top" alt="..."
+                 style="width: 110%; align-self:center;">
+             <div class="card-body">
+                 <h2 class="card-title">Exercise Tracker</h2>
+                 <p style="color:#ff44a8;"><?php echo $cals_exercise?></p>
+                 <p><?php echo "/".$target_exercise; ?></p>
+                 <!-- <h1><?php echo $cals_exercise."/".$target_exercise; ?></h1> -->
+                     <div class="card-text"> calories burnt</div>
+                     <br><br>
+                     <button class=" fs-3 fw-bold button"  type="button">
+        <a href="exercise_tracker.php">Add Workout</a></button>
+  
+             </div>
+         </div>
+     </div>
+     <div class="col w-25">
+         <div class="card h-100">
+             <img src="images/wat2.png" class="card-img-top " alt="..."
+                 style="width: 82%; padding-top:4%; padding-bottom:2%;align-self:center;">
+             <div class="card-body">
+                 <h2 class="card-title">Water Tracker</h2>        
+                <p style="color:#ff44a8;"><?php echo $no_of_glasses?></p>
+                 <p><?php echo "/8"?></p>
+                 <div class="card-text">glasses drank </div>
+                 <br><br>
+                 <form method="POST">   
+                 <div class="fs-4 ">
+<div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+  <input type="number" id="number" name="water" value="<?php echo $no_of_glasses?>" />
+  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+ <button class=" fs-3 fw-bold button" name="submit" type="submit">Update</button>
+                 </div>
+ </form>
+             </div>
+         </div>
+
+     </div>
+     <div class="col w-25">
+         <div class="card h-100">
+             <img src="images/weigh2.jpg" class="card-img-top" alt="..."
+                 style="width: 84%; align-self:center; 
+                 padding-top:3%; padding-bottom:4%;">
+             <div class="card-body">
+                 <h2 class="card-title">Weight Tracker</h2>
+
+                 <div class="card-text">
+                  Current weight: <br>
+                  <p style="color:#ff44a8;"><?php echo $current_weight?></p>
+                  <br>
+                  Target weight:   <br>             
+                 <p><?php echo $target_weight;?></p>
+                 <br>
+                 <button class=" fs-3 fw-bold button"  type="button">
+                <a href="weight_tracker.php">Update</a></button>
+             </div>
+                 </div>
+             </div>
+         </div>
+     <!-- </div> -->
+ <!-- </div> -->
+<!-- </div> -->
  
-
-
-        <div class="container-fluid">
+<!-- </div> -->
+<!-- 
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+    <img class="card-img-top" src="images/apple1.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+    <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div> -->
+        <!-- <div class="container-fluid">
         <form>
+
+        
         <div class="d-grid gap-2 d-md-block">
   <button class="btn btn-primary fs-3"  type="button"><a href="food_tracker.php" style="color:white;">Track Meal</a></button>
   <button class="btn btn-primary fs-3" type="button"><a href="exercise_tracker.php" style="color:white;">Track Exercise</a></button>
 </div>
+</div>
 
 <br><br>
-           <h2> Water tracker</h2>
+  <h2> Water tracker</h2>
   <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
   <input type="number" id="number" value="0" />
   <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
@@ -231,60 +412,11 @@ function closeNav() {
 </form>
 
                 
-        </div>
-        <script type="text/javascript" src="welcome.js"></script>
+        </div> -->
+
 <!-- <footer> FIND FOOTER LATER ON follow us on instgagrhrjrjrj</footer> -->
-<footer class="text-center text-lg-start text-white" style="background-color: #000000">
-            <!-- Grid container -->
-            <div class="container p-4 pb-0">
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-3
-                                    col-lg-3 col-xl-3 mx-auto mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold" id="about">About RFIT </h6>
-                            <p> This
-                                website is basically a fitness website
-                                which has some amazing features like
-                                food tracker, weight tracker and water
-                                tracker. </p>
-                        </div> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
-                                    mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold">Trackers</h6>
-                            <p> <a class="text-white">Food Tracker</a>
-                            </p>
-                            <p> <a class="text-white">Weight
-                                    Tracker</a> </p>
-                            <p> <a class="text-white">Water Tracker</a>
-                            </p>
-                        </div> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto
-                                    mt-3">
-                            <h6 class="text-uppercase mb-4
-                                        font-weight-bold" id="contact">Contact Us</h6>
-                            <p><i class="fas fa-envelope mr-3"></i>
-                                helping_hand@gmail.com</p>
-                            <p><i class="fas fa-phone mr-3"></i> + 91
-                                9874568254</p>
-                            <p><i class="fas fa-print
-                                            mr-3"></i> + 91 9852471598</p>
-                        </div> <!-- Grid column -->
-                        <!-- Grid column -->
-                        
-                    </div>
-                    <!--Grid row-->
-                </section> <!-- Section: Links -->
-            </div> <!-- Grid container -->
-        </footer> <!-- Footer -->
-    <!-- End of .container -->
+            </section>
+            <script type="text/javascript" src="welcome.js"></script>
 </body>
 
 </html>

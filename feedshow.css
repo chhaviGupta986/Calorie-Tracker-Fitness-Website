@@ -21,7 +21,7 @@ section{
 .container-fluid{
     margin-right: 0px;
     margin-left: 0px;
-    margin-top: 35px;
+    /* margin-top: 35px; */
     /* border-color: rgb(249, 12, 162);
     border-style: dashed; */
     /* padding: 0%;  */
@@ -34,7 +34,7 @@ section{
 }
 #main_nav{
     /* padding: 0px,0px,0px,0px; */
-    padding-top: 0.1rem;
+    /* padding-top: 0.1rem; */
     /* padding-left: 0.5rem; */
     margin-right: 0rem;
     padding-right: 0%;
@@ -46,18 +46,18 @@ section{
   }
 
 .photo{
-    top: 10%;
+    /* top: 10%; */
     background-color:white;
 }
 .main svg{
     /* display: inline-block; */
     z-index: -1;
-    position: absolute;
+    /* position: absolute; */
     /* width: 100%; */
 }
 
 .navigation{
-    height: 20px;
+    /* height: 20px; */
     /* padding: 30px 100px; */
     position: relative;
     display: flex;
@@ -87,15 +87,4 @@ section{
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
-}
-@media screen and (max-width: 768px) {
-    /* ul.navbar-nav{
-      padding-inline-start: 0vw;
-    } */
-    #wave{
-        display: none;
-    }
-    .medi{
-        width: 100%;
-    }
 }

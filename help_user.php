@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'connect.php'; 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   header("location: login.php");
   exit;
@@ -8,19 +9,14 @@ else{
   $user=$_SESSION['username'];
   $id=$_SESSION['id'];
 }  
-$conn = new mysqli('localhost', 'root', '', 'rfit');
-if ($conn->connect_error) {
-  die('Connection Failed : ' . $conn->connect_error);
-}
-
 if (isset($_POST['submit'])) {
 
-  $message = $_POST['message'];
+  $query = $_POST['message'];
   // $name = $_POST['name'];
-  $current_date = date("Y-m-d");
 
-  $sql = "INSERT INTO feedback(feedback_username, feedback_txt,feedback_user_id,feedback_date) 
-  VALUES('$user', '$message','$id','$current_date')";
+
+  $sql = "INSERT INTO notification(noti_user, noti_txt) values('$user','$query')"; 
+
   $res = mysqli_query($conn, $sql);
 
 
@@ -59,7 +55,6 @@ if (isset($_POST['submit'])) {
         /* justify-content: center; */
         /* min-height: 100vh; */
         font-family: "Lato", sans-serif;
-        /* background-image:url('images/for feedback if u need in future.svg'); */
     }
 
     input,
@@ -122,7 +117,9 @@ if (isset($_POST['submit'])) {
 #openbtn{
     visibility: visible;
 }
-
+.openbtn:hover {
+  background-color: #444;
+}
 
 #main {
   transition: margin-left .5s;
@@ -140,37 +137,32 @@ if (isset($_POST['submit'])) {
 <body>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <div style="padding-left:27px;">
-  <img src="images/pfp2.png" style="opacity:100%; width:150px;" alt="">
-  </div>
-
-  <a href="myacc.php">My Account</a>
-  <a href="weight_tracker.php">Weight Logs</a>
-  <!-- <a href="#">Exercise Diary</a> -->
-  <a href="feedback.php">Share Feedback</a>
-  <a href="logout.php">Logout</a>
-  <a href="help_user.php">Help</a>
+  <a href="#">My Account</a>
+  <a href="#">Weight Logs</a>
+  <a href="#">Exercise Diary</a>
+  <a href="feedback.html">Share Feedback</a>
+  <a href="homapage.html">Logout</a>
+  <a href="homapage.html#about">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">
-  <div class="openbtn" id="openbtn">
-  <button id="btn1" style="background-color: #ff44a8;
-  color: white;
-  border: none; font-size:x-large;"
+  <!-- <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>    onclick="openNav()" -->
+  <button class="openbtn" id="openbtn" style="width:200px;"
   onclick="openNav()">☰</button>  
+  
+  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+  data-bs-target="#mySidebar" aria-controls="navbarsExample02" aria-expanded="true"
+  aria-label="Toggle navigation"onclick="openNav()">☰ Open Sidebar</button>
+  <h2>Collapsed Sidebar</h2>
+  <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p> -->
+  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+ aria-controls="navbarsExample02" aria-expanded="true" 
 
-  <a class="navbar-brand" href="welcome.php" style="color: white; font-weight: 500; 
-  font-size: x-large; float:right">
-
-<h2 style="display: inline; font-family: 'Sulphur Point', 
-sans-serif; font-size: xx-large; font-weight: bold; margin-right:10px">
-                        RFiT</h2>
-                        <img src="images/logo.PNG" alt="Logo" height="40vh" class="d-inline-block"
-                        style="padding-right:0vh ; padding-top:0vh ;padding-bottom: 0.2em;">
-                        
-
-                </a>
-</div>
+  aria-label="Toggle navigation">☰ Open Sidebar</button>
+  <h2>Collapsed Sidebar</h2>
+  <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+</div> -->
+ <!-- onclick="openNav()" data-bs-target="#mySidebar" -->
 <script>
 var open=true;
 function openNav() {
@@ -186,80 +178,65 @@ function closeNav() {
 }
 </script>
 
-    <div class="row">
-    <div class="col" >
-      <img src="images/undraw_posts_re_ormv.svg" alt="" width="80%" style="margin-left:8%;">
-      </div>
-      <div class="col">
-      <form method="post" class="fs-3">
-      <label style="color: #ff44a8;font-size: 37px ;">We appreciate your feedbacks!</label>
+    <form method="post">
+        <label style="color: #ff44a8;font-size: 40px">ASK YOUR QUESTION</label>
         <!-- <label style="color: #ff44a8;font-size: 30px">Name:</label>
         <input type="text" placeholder="type your name here--" name="name"> -->
-        <div style="margin-left:2.2rem;">
         <?php
         echo "Submitting feedback as @";
         echo $user;
         ?>
-        </div>
-
-        <!-- <label style="color: #ff44a8;font-size: 30px">Give feeedback:</label> -->
-        <textarea cols="500" rows="10" placeholder="Leave a feedback--" name="message"></textarea>
+        <label style="color: #ff44a8;font-size: 30px">type here:</label>
+        <textarea cols="500" rows="10" placeholder="Type here--" name="message"></textarea>
 
         <input type="submit" style="background-color: #ff44a8;" name="submit">
     </form>
-      </div>
-    </div>
-
-  <br><br>    
-        
-        <!-- Footer -->
-        <footer class="text-center text-lg-start text-white" style="background-color: #000000
-        ">
+    <footer class="text-center text-lg-start text-white" style="background-color: #000000">
             <!-- Grid container -->
-            <div class="container p-0 pb-0" style="background-color: #000000">
+            <div class="container p-4 pb-0">
                 <!-- Section: Links -->
                 <section class="">
                     <!--Grid row-->
-                    <div class="row" >
+                    <div class="row">
                         <!-- Grid column -->
                         <div class="col-md-3
-                                col-lg-3 col-xl-3 mx-auto mt-3">
+                                    col-lg-3 col-xl-3 mx-auto mt-3">
                             <h6 class="text-uppercase mb-4
-                                    font-weight-bold" id="about">About RFIT </h6>
-                            <p> RFiT aims to provide an easy and hassle free online solution to help people integrate healthy habits into their busy lives. Get fitter with our amazing features such as
+                                        font-weight-bold" id="about">About RFIT </h6>
+                            <p> This
+                                website is basically a fitness website
+                                which has some amazing features like
                                 food tracker, weight tracker and water
-                                tracker.  </p>
+                                tracker. </p>
                         </div> <!-- Grid column -->
                         <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
-                                mt-3">
+                                    mt-3">
                             <h6 class="text-uppercase mb-4
-                                    font-weight-bold">Trackers</h6>
-                            <p> <a class="text-white">Food Tracker</a>
+                                        font-weight-bold">Follow us</h6>
+                            <p> <a class="text-white" href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM=">Instagram</a>
                             </p>
-                            <p> <a class="text-white">Weight
-                                    Tracker</a> </p>
-                            <p> <a class="text-white">Water Tracker</a>
+                            <p> <a class="text-white" href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL" >Facebook</a> </p>
+                            <p> <a class="text-white" href="https://www.linkedin.com/in/bhavya-verma-754983247" >LinkedIn</a>
                             </p>
                         </div> <!-- Grid column -->
                         <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
                         <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->
                         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto
-                                mt-3">
+                                    mt-3">
                             <h6 class="text-uppercase mb-4
-                                    font-weight-bold" id="contact">Contact Us</h6>
+                                        font-weight-bold" id="contact">Contact Us</h6>
                             <p><i class="fas fa-envelope mr-3"></i>
                                 helping_hand@gmail.com</p>
-                            <p><i class="fas fa-phone mr-3"></i> + 91
-                                9874568254</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 91 9892907159</p>
                             <p><i class="fas fa-print
-                                        mr-3"></i> + 91 9852471598</p>
+                                            mr-3"></i> + 91 9867929151</p>
                         </div> <!-- Grid column -->
                         <!-- Grid column -->
-
+                        
                     </div>
                     <!--Grid row-->
-                    <!-- Section: Links -->
+                </section> <!-- Section: Links -->
             </div> <!-- Grid container -->
         </footer>
         <script>

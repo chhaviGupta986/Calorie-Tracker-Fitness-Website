@@ -56,6 +56,7 @@ if ($result1->num_rows > 0) {
    .pink{
     color:rgb(236, 77, 143);
    }
+   html, body {margin: 0; height: 120%; overflow: hidden}
 </style>
 </head>
 
@@ -63,7 +64,7 @@ if ($result1->num_rows > 0) {
 
     <!-- <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-bottom: 0px;"> -->
     <!-- display:flex; -->
-    <section class="h-100" style=" justify-content: center; ">
+    <!-- <section class="" style=" justify-content: center; "> -->
     <nav class="navbar  navbar-expand-md" id="main_nav" aria-label="Second navbar example">
     <div class="container-fluid ">
         <a class="navbar-brand" href="#" style="color: white; font-weight: 500; font-size: xx-large;">
@@ -82,9 +83,9 @@ if ($result1->num_rows > 0) {
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="welcome.php">HOME</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="signup.html"><span
-                            class="glyphicon glyphicon-user"></span>PROFILE</a></li>
-                <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="#"><span
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
+                            class="glyphicon glyphicon-user"></span>HELP</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="logout.php"><span
                             class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
             </ul>
         </div>
@@ -93,11 +94,24 @@ if ($result1->num_rows > 0) {
     <div class="d-flex justify-content-center" style="font-size:5rem; color:#ff44a8; 
       background-color: rgba(211, 211, 211, 0.324);">My Account</div>
     <div class="row" style="padding-left:15%;  padding-right:15%; ">
-                <div class="col-4 d-flex justify-content-center" style="padding-top:6%;
+                <div class="col-4 d-flex justify-content-center" style="padding-top:1%;
                  padding-right: 2%; padding-bottom:0%; margin-right:13%;">
-                    <img src="images/pfp2.png" alt="" height=70%;>
+                 
+                 <?php 
+                 if($gender=="M"){
+                    echo '<img src="images/pfp_male.png" alt="" height=55%;>'; 
+
+                 }
+                 elseif($gender=="F"){
+                    echo '<img src="images/pfp_female.png" alt="" height=55%;>'; 
+                 }
+                 else{
+                    echo '<img src="images/pfp2.png" alt="" height=60%; style="margin-top:15%">';
+                 }
+                 ?>
+                    <!-- <img src="images/pfp2.png" alt="" height=70%;> -->
                 </div>
-                <div class="col" style="padding-top:6%;  padding-right: 5%;">
+                <div class="col" style="padding-top:4%;  padding-right: 5%;">
                     <!-- <div class="container"> -->
 
                     <!-- </div> -->
@@ -136,14 +150,15 @@ To
     <br>
     </div >
     <h2>
-        <form action="delete.php" method="post">
-        <button type="submit" name="del_btn" class="btn btn-danger">Delete Account</button>
+        <form action="delete.php" method="post" style="margin-bottom:0px;">
+        <!-- <button type="submit" name="del_btn" class="btn btn-danger">Delete Account</button> -->
+        <input type="submit" name="del_btn" value="Delete Account">
         </form>
         
     </h2>
 </div>
             </div>    
-    </section>
+    <!-- </section> -->
 
  <!-- <script type="text/javascript" src="signup_part2.js"></script> -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
