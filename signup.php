@@ -8,15 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $user=$_POST['username'];
 $mail=$_POST['email'];
 $pass=$_POST['password'];
-echo $user;
-echo $mail;
-echo $pass;
-// $conn=new mysqli('localhost','root','','rfit');
-// if($conn->connect_error){
-//     die('Connection Failed : '.$conn->connect_error);
-// }
 
-// else{
 
         // Check whether this username exists
         $existSql = "SELECT * FROM `client` WHERE username = '$user'";
@@ -35,25 +27,7 @@ elseif($numExistRows1 > 0){
     $showError = "This email is already registered";
 	} 
         else{
-			// Initialize the session
-      
-// Store the submitted data sent
-// via POST method, stored 
 
-// Temporarily in $_POST structure.
-// $_SESSION['username'] = $user; 
-// $_SESSION['email']= $mail;
-// $hash = password_hash($pass, PASSWORD_DEFAULT);
-// $_SESSION['hash_']= $hash;
-			// echo $password;
-			// // $hash = password_hash($password, PASSWORD_BCRYPT);
-            // $stmt=$conn->prepare("insert into client(username,email,password) values(?,?,?)");
-            // $stmt->bind_param("sss",$user,$mail,$hash);
-            // $stmt->execute();
-            // // echo "Registeration Succesfull...";
-// $user=$_POST['username'];
-// $mail=$_POST['email'];
-// $pass=$_POST['password'];
 
 $_SESSION['username']=$_POST['username'];
 $_SESSION['email']=$_POST['email'];
@@ -120,9 +94,10 @@ $_SESSION['pass']=$_POST['password'];
 			<div class="card-header">
 				<h3>Sign Up</h3>
 				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
+				<a href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM="><span><i class="fab fa-facebook-square"></i></span></a>
+				<a href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL"><span><i class="fab fa-google-plus-square"></i></span></a>
+				<a href="https://www.linkedin.com/in/bhavya-verma-754983247"><span><i class="fab fa-twitter-square"></i></span></a>
+                    
 				</div>
 			</div>
 			<div class="card-body">

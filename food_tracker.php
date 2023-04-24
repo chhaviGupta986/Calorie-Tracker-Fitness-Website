@@ -201,10 +201,7 @@ color:grey;
                 </li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="myacc.php"><span
                             class="glyphicon glyphicon-user"></span>PROFILE</a></li>
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
-                            class="glyphicon glyphicon-user"></span>HELP</a></li>
-                <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="logout.php"><span
-                            class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php">HELP</a></li>
             </ul>
         </div>
     </div>

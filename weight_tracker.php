@@ -31,18 +31,18 @@ $result3 = mysqli_query($conn, $sql3);
     //         $date=$row["updated_on"];          
     //    }
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST['submit']))
-        { echo "hi";
+        if(isset($_POST['submit'])){
+        // { echo "hi";
             if(!empty($_POST['wt_input']))
             {
-                echo "bye"; 
+                // echo "bye"; 
                 $current_date = date("Y-m-d");
-                echo $current_date; 
+                // echo $current_date; 
             $new_wt = $_POST['wt_input'];
             $sql4="INSERT INTO `weight_tracker`( `tracker_id`, `weight`, `updated_on`) 
             VALUES ('$id', '$new_wt','$current_date')";
             $result4 = mysqli_query($conn, $sql4);
-            echo $result4;
+            // echo $result4;
             }
             else
             {
@@ -114,8 +114,7 @@ $result3 = mysqli_query($conn, $sql3);
                 </li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="myacc.php"><span
                             class="glyphicon glyphicon-user"></span>PROFILE</a></li>
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
-                            class="glyphicon glyphicon-user"></span>HELP</a></li>
+                            <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php">HELP</a></li>
                 <li class="nav-item"><a class="nav-link" target="_blank" aria-current="page" href="logout.php"><span
                             class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
             </ul>
@@ -175,6 +174,7 @@ $result3 = mysqli_query($conn, $sql3);
 </div> 
 <h1>Target weight</h1>
     <h3>to enter the healthy BMI range:</h3>
+    <h1 style="color:#ff44a8; font-size:1000" class="fw-bold">
     <?php
       $sql5="SELECT target_weight FROM `weight_tracker` WHERE tracker_id='$id'";
       $result5 = mysqli_query($conn, $sql5);
@@ -187,6 +187,8 @@ $result3 = mysqli_query($conn, $sql3);
         }
     }
     ?>
+    </h1>
+
 </p>   
     </div>
 </div>

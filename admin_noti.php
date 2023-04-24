@@ -17,7 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         $send = $_POST['send'];
         $reply_msg=$_POST['reply_txt'];
         // $user=$_POST['noti_username'];
-        echo $reply_msg;
+        // echo $reply_msg;
         $sql2="UPDATE `notification` SET reply='$reply_msg' WHERE  noti_id='$send'";
         $result2 = mysqli_query($conn, $sql2);
       }

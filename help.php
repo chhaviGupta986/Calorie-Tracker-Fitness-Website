@@ -15,9 +15,10 @@ if (isset($_POST['submit'])) {
   // $name = $_POST['name'];
 
 
-  $sql = "INSERT INTO notification(noti_user, noti_txt) values('$user','$query')"; 
+  // $sql = "INSERT INTO `notification` ('noti_user', 'noti_txt') values('$user','$query')"; 
+  $sql1 = "INSERT INTO notification(noti_user, noti_txt) values('$user','$query')"; 
 
-  $res = mysqli_query($conn, $sql);
+  $res = mysqli_query($conn, $sql1);
 
 
 }
@@ -251,6 +252,11 @@ We try to respond to your queries at the earliest. Please keep checking the
 
             </section>
             <script type="text/javascript" src="welcome.js"></script>
+            <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </body>
 
 </html>

@@ -94,9 +94,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="card-header">
                     <h3>Login</h3>
                     <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span><i class="fab fa-google-plus-square"></i></span>
-                        <span><i class="fab fa-twitter-square"></i></span>
+                    <a href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM="><span><i class="fab fa-facebook-square"></i></span></a>
+				<a href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL"><span><i class="fab fa-google-plus-square"></i></span></a>
+				<a href="https://www.linkedin.com/in/bhavya-verma-754983247"><span><i class="fab fa-twitter-square"></i></span></a>
                     </div>
                 </div>
                 <div class="card-body">

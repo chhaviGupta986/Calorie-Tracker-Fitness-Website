@@ -203,7 +203,7 @@ integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE
   <!-- <a href="#">Exercise Diary</a> -->
   <a href="feedback.php">Share Feedback</a>
   <a href="logout.php">Logout</a>
-  <a href="help_user.php">Help</a>
+  <a href="help.php">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">
@@ -365,56 +365,7 @@ function closeNav() {
                  </div>
              </div>
          </div>
-     <!-- </div> -->
- <!-- </div> -->
-<!-- </div> -->
- 
-<!-- </div> -->
-<!-- 
-  <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-    <img class="card-img-top" src="images/apple1.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div> -->
-        <!-- <div class="container-fluid">
-        <form>
-
-        
-        <div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-primary fs-3"  type="button"><a href="food_tracker.php" style="color:white;">Track Meal</a></button>
-  <button class="btn btn-primary fs-3" type="button"><a href="exercise_tracker.php" style="color:white;">Track Exercise</a></button>
-</div>
-</div>
-
-<br><br>
-  <h2> Water tracker</h2>
-  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-  <input type="number" id="number" value="0" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-
-  <button type="submit" name="submit" class="btn btn-dark">Submit</button>
-</form>
-
-                
-        </div> -->
-
-<!-- <footer> FIND FOOTER LATER ON follow us on instgagrhrjrjrj</footer> -->
+    
             </section>
             <script type="text/javascript" src="welcome.js"></script>
 </body>

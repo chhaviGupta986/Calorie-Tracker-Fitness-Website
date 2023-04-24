@@ -237,7 +237,7 @@ if ($result1->num_rows > 0) {
         $sql12="INSERT INTO `exercise_tracker`( `tracker_id`, `target_cals`) VALUES ('$id', '$ex_limit')";
         $result12 = mysqli_query($conn, $sql12);
         $sql13="INSERT INTO `weight_tracker`( `tracker_id`, `target_weight`,`updated_on`,`weight`) 
-        VALUES ('$id', '$t_wt','$joined','$weight')";
+        VALUES ('$id', '$wt','$joined','$weight')";
         $result13 = mysqli_query($conn, $sql13);
         $sql14="INSERT INTO `water_tracker`( `tracker_id`) VALUES ('$id')";
         $result14 = mysqli_query($conn, $sql14);

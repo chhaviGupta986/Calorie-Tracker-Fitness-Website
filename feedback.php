@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
         font-family: "Lato", sans-serif;
         /* background-image:url('images/for feedback if u need in future.svg'); */
     }
-
+    html, body {overflow-x: hidden}
     input,
     textarea {
         display: block;
@@ -188,7 +188,7 @@ function closeNav() {
 
     <div class="row">
     <div class="col" >
-      <img src="images/undraw_posts_re_ormv.svg" alt="" width="80%" style="margin-left:8%;">
+      <img src="images/undraw_posts_re_ormv.svg" alt="" width="100%">
       </div>
       <div class="col">
       <form method="post" class="fs-3">
@@ -234,12 +234,11 @@ function closeNav() {
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto
                                 mt-3">
                             <h6 class="text-uppercase mb-4
-                                    font-weight-bold">Trackers</h6>
-                            <p> <a class="text-white">Food Tracker</a>
+                                    font-weight-bold">Follow Us</h6>
+                            <p> <a class="text-white" href="https://instagram.com/vermabhavya183?igshid=ZDdkNTZiNTM=">Instagram</a>
                             </p>
-                            <p> <a class="text-white">Weight
-                                    Tracker</a> </p>
-                            <p> <a class="text-white">Water Tracker</a>
+                            <p> <a class="text-white" href="https://www.facebook.com/bhavya.verma.9849912?mibextid=ZbWKwL">Facebook</a> </p>
+                            <p> <a class="text-white" href="https://www.linkedin.com/in/bhavya-verma-754983247">LinkedIn</a>
                             </p>
                         </div> <!-- Grid column -->
                         <hr class="w-100 clearfix d-md-none" /> <!-- Grid column -->

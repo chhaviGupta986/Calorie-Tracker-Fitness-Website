@@ -83,8 +83,7 @@ if ($result1->num_rows > 0) {
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="welcome.php">HOME</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php"><span
-                            class="glyphicon glyphicon-user"></span>HELP</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="help.php">HELP</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="logout.php"><span
                             class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
             </ul>

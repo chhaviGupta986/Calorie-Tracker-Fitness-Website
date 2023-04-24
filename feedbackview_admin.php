@@ -123,10 +123,6 @@ if(isset($_POST['del_btn']))
          </tbody>
       </table>
     </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2" style="background-color: #ff44a8" type="button"><a href="admindash.php" style="color:white;text-decoration: none" >Admin Dashboard</a></button>
-  <button class="btn btn-primary me-md-5" style="background-color: #ff44a8" type="button"><a href="feedback.php" style="color: white;text-decoration: none;"> Add feedback</a></button>
-</div>
                 </form><br>
 </body>
 </html>

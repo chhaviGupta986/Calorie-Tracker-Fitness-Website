@@ -11,8 +11,8 @@ $showError = false;
 // print_r($_SESSION);
 if($_SERVER["REQUEST_METHOD"] == "POST"){    
 // include 'connect.php';
-echo "why is it not entering heree";
-echo "hiiiiii";
+// echo "why is it not entering heree";
+// echo "hiiiiii";
          //Creating a custom session id
         //  session_id("my-id");
          //Starting the session
@@ -30,7 +30,7 @@ $lname=$_POST['lname'];
 $weight=$_POST['weight'];
 $height=$_POST['height'];
 $dob=$_POST['dob'];
-print_r($_SESSION);
+// print_r($_SESSION);
 // $user=$_SESSION['username'];
   
 // $mail=$_SESSION['email'];
@@ -176,12 +176,12 @@ else{
                     <div class="col-md-6">
                         <label for="validationServer01" class="form-label">First name:</label>
                         <input type="text" class="form-control fs-4 border border-2" name="fname"
-                        id="validationServer01" value="Andrew" required>
+                        id="validationServer01" required>
                     </div>
                     <div class="col-md-6">
                         <label for="validationServer02" class="form-label">Last name:</label>
                         <input type="text" class="form-control fs-4 border border-2" name="lname"
-                        id="validationServer02" value="Tate" required>
+                        id="validationServer02"  required>
                     </div>
                     <div class="col-md-6 ">
                         <label for="validationServer03" class="form-label"> Gender:</label>
