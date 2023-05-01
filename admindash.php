@@ -48,9 +48,9 @@ $result1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($_POST['del_btn']))
 {
-    echo "inside isset";
+    // echo "inside isset";
     $admin_name = $_POST['delete_name'];
-    echo $admin_name;
+    // echo $admin_name;
     // $query = " ";
     // $query_run = mysqli_query($connection, $query);
     $stmt = $con->prepare("DELETE FROM client WHERE username='$admin_name'");

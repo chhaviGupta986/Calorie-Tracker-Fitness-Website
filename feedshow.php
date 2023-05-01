@@ -109,10 +109,10 @@ $text=$value['feedback_txt']; $date=$value['feedback_date'];$user=$value['feedba
                         <div style="margin-left:15px;">@
                         '. $user.' says
                         </div>
-                        <div class="card-body fs-1">
+                        <div class="card-body fs-2">
                           <blockquote class=" mb-0">
                             <p>'. $text.'</p>
-                            <footer class="blockquote-footer fs-4">
+                            <footer class="blockquote-footer fs-4 mb-0">
                             '. $date.'</footer>
                             </blockquote>
                         </div>

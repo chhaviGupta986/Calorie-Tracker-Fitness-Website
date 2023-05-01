@@ -282,9 +282,9 @@ function closeNav() {
                 </div> -->
                 <div>
  
- <div class="row row-cols-md-2 p-5 gx-5">
+ <div class="row row-cols-lg-4 ros-cols-1 p-5">
        
-     <div class="col w-25"> 
+     <div class="col "> 
              <div class="card h-100">
                  
                  <img src="images/apple1.png" class="card-img-top" alt="..."
@@ -305,7 +305,7 @@ function closeNav() {
              </div>
          
      </div>
-     <div class="col w-25">
+     <div class="col ">
          <div class="card h-100">
              <img src="images/ex_Tracker1.png" class="card-img-top" alt="..."
                  style="width: 110%; align-self:center;">
@@ -322,29 +322,30 @@ function closeNav() {
              </div>
          </div>
      </div>
-     <div class="col w-25">
+     <div class="col ">
          <div class="card h-100">
              <img src="images/wat2.png" class="card-img-top " alt="..."
                  style="width: 82%; padding-top:4%; padding-bottom:2%;align-self:center;">
              <div class="card-body">
-                 <h2 class="card-title">Water Tracker</h2>        
-                <p style="color:#ff44a8;"><?php echo $no_of_glasses?></p>
-                 <p><?php echo "/8"?></p>
-                 <div class="card-text">glasses drank </div>
-                 <br><br>
+                 <h2 class="card-title">Water Tracker</h2>     <br>   
+                <!-- <p style="color:#ff44a8;"><?php echo $no_of_glasses?></p>
+                 <p><?php echo "/8"?></p> -->
                  <form method="POST">   
-                 <div class="fs-4 ">
-<div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-  <input type="number" id="number" name="water" value="<?php echo $no_of_glasses?>" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
- <button class=" fs-3 fw-bold button" name="submit" type="submit">Update</button>
+                 <div class="fs-3 ">
+                  <div class="value-button " id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                  <input type="number" style="color:#ff44a8; text-align:right;" id="number" name="water" value="<?php echo $no_of_glasses?>"/><input id="number" style="text-align:left; width:47px;" type="text" value="/8" readonly/>
+                  <div class="value-button " id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                  <div class="card-text">glasses drank </div>
+                 <br>
+                <button class=" fs-3 fw-bold button" name="submit" type="submit">Update</button>
                  </div>
  </form>
+
              </div>
          </div>
 
      </div>
-     <div class="col w-25">
+     <div class="col ">
          <div class="card h-100">
              <img src="images/weigh2.jpg" class="card-img-top" alt="..."
                  style="width: 84%; align-self:center; 
@@ -360,11 +361,12 @@ function closeNav() {
                  <p><?php echo $target_weight;?></p>
                  <br>
                  <button class=" fs-3 fw-bold button"  type="button">
-                <a href="weight_tracker.php">Update</a></button>
-             </div>
-                 </div>
-             </div>
-         </div>
+                  <a href="weight_tracker.php">Update</a></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     
             </section>
             <script type="text/javascript" src="welcome.js"></script>

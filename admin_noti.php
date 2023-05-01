@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 session_start();
-
+error_reporting(0);
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
  exit();
   }
@@ -14,88 +14,18 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     $result1 = mysqli_query($conn, $sql1);
 
     if(isset($_POST['send'])){
+      
         $send = $_POST['send'];
-        $reply_msg=$_POST['reply_txt'];
+        $reply_msg=$_POST[$_POST['send']];
+        // $reply_msg=$_POST['reply_txt'];
+        // echo $send;
+        // echo $reply_msg;
         // $user=$_POST['noti_username'];
         // echo $reply_msg;
         $sql2="UPDATE `notification` SET reply='$reply_msg' WHERE  noti_id='$send'";
         $result2 = mysqli_query($conn, $sql2);
       }
   }  
-
-
-
-
-
-
-
-// $insert=false;
-
-// echo "joined=";
-
-// echo $joined;
-
-// $sql2="INSERT INTO `weight_tracker`( `tracker_id`, `weight`, `updated_on`) VALUES
-
-//  ('$id', '$weight','$joined')";
-
-// $result2 = mysqli_query($conn, $sql2);
-
-
-
-
-// $sql3="SELECT updated_on,weight FROM `weight_tracker` WHERE tracker_id='$id'";
-
-// $result3 = mysqli_query($conn, $sql3);        
-
-//     //     while($row = $result3->fetch_assoc()) {
-
-//     //          $weight1=$row["weight"];                
-
-//     //         $date=$row["updated_on"];          
-
-//     //    }
-
-//     if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-//         if(isset($_POST['submit']))
-
-//         { echo "hi";
-
-//             if(!empty($_POST['wt_input']))
-
-//             {
-
-//                 echo "bye";
-
-//                 $current_date = date("Y-m-d");
-
-//                 echo $current_date;
-
-//             $new_wt = $_POST['wt_input'];
-
-//             $sql4="INSERT INTO `weight_tracker`( `tracker_id`, `weight`, `updated_on`)
-
-//             VALUES ('$id', '$new_wt','$current_date')";
-
-//             $result4 = mysqli_query($conn, $sql4);
-
-//             echo $result4;
-
-//             }
-
-//             else
-
-//             {
-
-//                 $searchErr = "Please enter the information";
-
-//             }
-
-//         }
-
-//     }
-
    
 ?>
 
@@ -127,7 +57,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         </a>
         <div class="gap-2 d-inline" style="align-items:right; position:absolute; right:0;">
   <button class="btn me-md-2" style="background-color:darkgreen" type="button">
-  <a href="admin_noti.php" style="color:white;text-decoration: none" >NOTIFICATIONS</a></button>
+  <a href="admindash.php" style="color:white;text-decoration: none" >DASHBOARD</a></button>
   <button class="btn me-md-2" style="background-color:darkgreen" type="button">
   <a href="feedbackview_admin.php" style="color: white;text-decoration: none;"> FEEDBACKS</a></button>
   <button class="btn me-md-3" style="background-color: #ff44a8" type="button">
@@ -172,13 +102,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
                         <td><?php echo $value['noti_txt'];?></td>
 
                         <td>
-                        <!-- <input type="hidden" name="id_noti" value='<?php echo $value['noti_id']; ?>'> -->
-                  <input type="text-area" name="reply_txt" value="">
-                  <button type="submit" name="send" value='<?php echo $value['noti_id']; ?>' 
-                  class="btn btn-success">Reply</button>
+                        <!-- <input type="hidden" name="id_noti" value=''> -->
+                  <!-- <input type="text" name="reply_txt" value=""> -->
+                  Existing reply:
+                  <div style="display:inline; color:maroon;"><?php if($value['reply']==NULL){
+                    echo '<div style="display:inline; color:red; font-weight:bold;">NO REPLY YET! PLEASE ADD A REPLY!</div>';
+                  }
+                  else{
+                    echo $value['reply'];
+                  }?></div>
                   
-                </td>
+                  
+                  <br>
+                  <input type="text" style="width:100%; margin-bottom:10px;margin-top:10px;"name="<?php echo $value['noti_id'];?>" value="">
 
+                  <!-- <button type="submit" name="send" value='<?php echo $value['noti_id'];?>' 
+                  class="btn btn-success"> -->
+                  <button type="submit" name="send" value='<?php echo $value['noti_id'];?>' 
+                  class="btn btn-success">
+                  Edit Reply</button>                 
+                </td>
                     </tr>
                     
                      <?php    

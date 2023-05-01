@@ -149,7 +149,7 @@ if (isset($_POST['submit'])) {
   <!-- <a href="#">Exercise Diary</a> -->
   <a href="feedback.php">Share Feedback</a>
   <a href="logout.php">Logout</a>
-  <a href="help_user.php">Help</a>
+  <a href="help.php">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">
@@ -186,8 +186,8 @@ function closeNav() {
 }
 </script>
 
-    <div class="row">
-    <div class="col" >
+    <div class="row p-5">
+    <div class="col " >
       <img src="images/undraw_posts_re_ormv.svg" alt="" width="100%">
       </div>
       <div class="col">

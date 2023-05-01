@@ -168,7 +168,7 @@ integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE
   <!-- <a href="#">Exercise Diary</a> -->
   <a href="feedback.php">Share Feedback</a>
   <a href="logout.php">Logout</a>
-  <a href="help_user.php">Help</a>
+  <a href="help.php">Help</a>
 </div>
   <!-- style="visibility: visible" -->
 <div id="main" style="padding: 0px;">

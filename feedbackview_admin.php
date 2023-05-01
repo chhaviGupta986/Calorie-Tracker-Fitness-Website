@@ -32,9 +32,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($_POST['del_btn']))
 {
-    echo "inside isset";
+    // echo "inside isset";
     $sr_no = $_POST['del_btn'];
-    echo $sr_no;
+    // echo $sr_no;
     // $query = " ";
     // $query_run = mysqli_query($connection, $query);
     $stmt = $con->prepare("DELETE FROM feedback WHERE sr_no='$sr_no'");

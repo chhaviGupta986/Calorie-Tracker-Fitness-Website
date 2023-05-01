@@ -67,7 +67,7 @@ else{
     $_SESSION['weight']=$_POST['weight'];
     $_SESSION['height']=$_POST['height'];
     $_SESSION['dob']=$_POST['dob'];
-    print_r($_SESSION);
+    // print_r($_SESSION);
 
 //     // $sql = "INSERT INTO `client`(`username`, `password`, `email`,`fname`,`lname`,`dob`, `gender`,`weight`, `height`) 
 //     // VALUES ('$_SESSION['username']', '$hash', '$_SESSION['email']','$fname', '$lname', '$dob','$gender','$weight', '$height')";

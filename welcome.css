@@ -9,11 +9,11 @@ form {
     display: inline-block;
     border: 1px solid #ddd;
     margin: 0px;
-    width: 40px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
     text-align: center;
-    vertical-align: middle;
-    padding: 11px 0;
+    vertical-align: top;
+    /* padding: 11px 0; */
     background: #eee;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -21,6 +21,8 @@ form {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-size:x-large;
+    font-weight:600;
   }
   
   .value-button:hover {
@@ -43,13 +45,16 @@ form {
   }
   
   input#number {
-    text-align: center;
+    /* text-align: center; */
+    vertical-align: middle;
     border: none;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     margin: 0px;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 44px;
+    font-size:xx-large;
+    font-weight:1000;
   }
   
   input[type=number]::-webkit-inner-spin-button,
