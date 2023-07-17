@@ -10,8 +10,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     
     $user=$_SESSION['username'];
 
-    $sql1="SELECT * FROM `notification`";
-    $result1 = mysqli_query($conn, $sql1);
+    // $sql1="SELECT * FROM `notification`";
+    // $result1 = mysqli_query($conn, $sql1);
 
     if(isset($_POST['send'])){
       
@@ -26,7 +26,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         $result2 = mysqli_query($conn, $sql2);
       }
   }  
-   
+  $sql1="SELECT * FROM `notification`";
+  $result1 = mysqli_query($conn, $sql1);
 ?>
 
 <!DOCTYPE html>

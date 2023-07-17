@@ -23,13 +23,13 @@ if ($result2->num_rows > 0) {
         $cals_exercise=$row["cals"];                 
     }
   }
-$sql3="SELECT * FROM `water_tracker` WHERE tracker_id='$id'";
-$result3 = mysqli_query($conn, $sql3);
-if ($result3->num_rows > 0) {
-    while($row = $result3->fetch_assoc()) {     
-        $no_of_glasses=$row["no_of_glasses"];                                 
-    }
-  }
+// $sql3="SELECT * FROM `water_tracker` WHERE tracker_id='$id'";
+// $result3 = mysqli_query($conn, $sql3);
+// if ($result3->num_rows > 0) {
+//     while($row = $result3->fetch_assoc()) {     
+//         $no_of_glasses=$row["no_of_glasses"];                                 
+//     }
+//   }
 $sql4="SELECT * FROM `weight_tracker` WHERE tracker_id='$id'";
 $result4 = mysqli_query($conn, $sql4);
 if ($result4->num_rows > 0) {
@@ -58,7 +58,13 @@ if ($result4->num_rows > 0) {
           // $stmt->execute();
   
     }
-
+    $sql3="SELECT * FROM `water_tracker` WHERE tracker_id='$id'";
+    $result3 = mysqli_query($conn, $sql3);
+    if ($result3->num_rows > 0) {
+        while($row = $result3->fetch_assoc()) {     
+            $no_of_glasses=$row["no_of_glasses"];                                 
+        }
+      }
 ?>
 
 <!DOCTYPE html>
@@ -150,7 +156,9 @@ html{
   transition: margin-left .5s;
   /* padding: 16px; */
 }
-
+.col{
+  margin-bottom:0px;
+}
 .card-body{
   background-color: lightpink;
 }
@@ -281,7 +289,10 @@ function closeNav() {
                     </ul>
                 </div> -->
                 <div>
- 
+                <div class="row">
+      <div class="col-12 fs-2 fw-lighter fst-italic text-center" style="margin-top:2rem;">Calorie budgets for the day are set based upon multiple factors, such as your goals, height, weight, gender etc.
+          </div>
+            </div>
  <div class="row row-cols-lg-4 ros-cols-1 p-5">
        
      <div class="col "> 
@@ -365,9 +376,12 @@ function closeNav() {
                   </div>
               </div>
           </div>
-      </div>
+      </div> 
     </div>
-    
+    <!-- <div class="row">
+      <div class="col-12 fs-1 fw-lighter fst-italic text-center" style="margin-bottom:5rem;">Calorie budgets are set based upon multiple factors, such as your goals, height, weight, gender etc.
+          </div>
+            </div>  -->
             </section>
             <script type="text/javascript" src="welcome.js"></script>
 </body>

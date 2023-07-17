@@ -207,7 +207,7 @@ color:grey;
     </div>
 </nav>
 <!-- action="#" -->
- <form method="POST" >
+ <form method="POST">
   <div style="width: 50%;  border-style:outset; margin-left: 25%;margin-right: 25%;margin-top: 2%; ">
   <div class="input-group mb-2" style="width: 100%;  border-style:outset;">
     <input type="text" class="form-control fs-3" placeholder="Search for a food item" name="search" style="" aria-label="Search food" aria-describedby="basic-addon2" >

@@ -40,23 +40,27 @@ $number_of_rows2 = $result2->fetchColumn();
 $stmt = $con->prepare("select username,fname,lname from client WHERE role='admin'");
 $stmt->execute();
 $result1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt2 = $con->prepare("select user_id,username,email,gender,date_of_joining
+ from client WHERE role='user'");
+$stmt2->execute();
+$result3 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 // echo $result;
 
 ?>
 
 <?php
 
-if(isset($_POST['del_btn']))
-{
-    // echo "inside isset";
-    $admin_name = $_POST['delete_name'];
-    // echo $admin_name;
-    // $query = " ";
-    // $query_run = mysqli_query($connection, $query);
-    $stmt = $con->prepare("DELETE FROM client WHERE username='$admin_name'");
-$stmt->execute();
+// if(isset($_POST['del_btn']))
+// {
+//     // echo "inside isset";
+//     $admin_name = $_POST['delete_name'];
+//     // echo $admin_name;
+//     // $query = " ";
+//     // $query_run = mysqli_query($connection, $query);
+//     $stmt = $con->prepare("DELETE FROM client WHERE username='$admin_name'");
+// $stmt->execute();
 
-}
+// }
 
 ?>
 
@@ -137,17 +141,17 @@ $stmt->execute();
                 </div>
                 
 </div>
-
-<form method="POST">
+<!-- 
+<form method="POST"> -->
   <h2 >ADMIN ACCOUNTS</h2>
     <div class="table-responsive">          
       <table class="table table-striped table-bordered" style="background-color: pink;border-color: darkgreen;">
         <thead>
           <tr>
             <th></th>
-            <th>Username</th>
+            <th>Admin</th>
             <th>Name</th>
-            <th>Delete</th>
+            <!-- <th>Delete</th> -->
           </tr>
         </thead>
         <tbody>
@@ -159,10 +163,10 @@ $stmt->execute();
                         <td><?php echo $key+1;?></td>
                         <td><?php echo $value['username'];?></td>
                         <td><?php echo $value['fname'];echo " "; echo $value['lname'];?></td>
-                        <td><form method="post">
+                        <!-- <td><form method="post">
                   <input type="hidden" name="delete_name" value="<?php echo $value['username']; ?>">
                   <button type="submit" name="del_btn" class="btn btn-danger">DELETE</button>
-                </form></td>                       
+                </form></td>                        -->
                     </tr>
                      <?php    
                  }
@@ -170,8 +174,43 @@ $stmt->execute();
          </tbody>
       </table>
     </div>
-    </form>
+    <!-- </form> -->
 <br>
-    
+<h2 >USER ACCOUNTS</h2>
+    <div class="table-responsive">          
+      <table class="table table-striped table-bordered" style="background-color: pink;border-color: darkgreen;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>User-id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Joined on</th>
+          </tr>
+        </thead>
+        <tbody>
+                <?php
+                    foreach($result3 as $key=>$value)
+                    {
+                        ?>
+                    <tr>
+                        <td><?php echo $key+1;?></td>
+                        <td><?php echo $value['user_id'];?></td>
+                        <td><?php echo $value['username'];?></td>
+                        <td><?php echo $value['email'];?></td>
+                        <td><?php echo $value['gender'];?></td>
+                        <td><?php echo $value['date_of_joining'];?></td>
+                        <!-- <td><form method="post">
+                  <input type="hidden" name="delete_name" value="<?php echo $value['username']; ?>">
+                  <button type="submit" name="del_btn" class="btn btn-danger">DELETE</button>
+                </form></td>                        -->
+                    </tr>
+                     <?php    
+                 }
+                ?>
+         </tbody>
+      </table>
+    </div>    
 </body>
 </html>

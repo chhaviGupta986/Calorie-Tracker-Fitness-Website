@@ -22,9 +22,9 @@ catch(PDOException $e)
 {
     echo '<br>'.$e->getMessage();
 }
-$stmt = $con->prepare("select * from feedback");
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $stmt = $con->prepare("select * from feedback");
+// $stmt->execute();
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // echo $result;
 
 ?>
@@ -41,7 +41,9 @@ if(isset($_POST['del_btn']))
     $stmt->execute();
 
 }
-
+$stmt = $con->prepare("select * from feedback");
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 

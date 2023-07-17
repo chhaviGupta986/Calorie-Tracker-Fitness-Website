@@ -208,6 +208,7 @@ color:grey;
         </div>
     </div>
 </nav>
+
  <form method="POST" >
   <div style="width: 50%;  border-style:outset; margin-left: 25%;margin-right: 25%;margin-top: 2%; ">
   <div class="input-group mb-2" style="width: 100%;  border-style:outset;">
@@ -264,6 +265,11 @@ color:grey;
   ?> 
       
 </div>
+<div class="row">
+      <div class="col-12 fs-3 fw-lighter fst-italic" style="margin-top:2rem;">
+      Exercise calorie estimates are based upon your body weight and other details.
+          </div>
+            </div>
 <br>
 
 <h3 id="head"><u>Search Result</u></h3><br/>

@@ -17,19 +17,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         $weight=$row["weight"];              
     }
 }
-// $insert=false;
-// echo "joined=";
-// echo $joined;
-// $sql2="INSERT INTO `weight_tracker`( `tracker_id`, `weight`, `updated_on`) VALUES
-//  ('$id', '$weight','$joined')";
-// $result2 = mysqli_query($conn, $sql2);
 
-$sql3="SELECT updated_on,weight FROM `weight_tracker` WHERE tracker_id='$id'";
-$result3 = mysqli_query($conn, $sql3);        
-    //     while($row = $result3->fetch_assoc()) {
-    //          $weight1=$row["weight"];                
-    //         $date=$row["updated_on"];          
-    //    }
+
+// $sql3="SELECT updated_on,weight FROM `weight_tracker` WHERE tracker_id='$id'";
+// $result3 = mysqli_query($conn, $sql3);  
+
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_POST['submit'])){
         // { echo "hi";
@@ -50,7 +43,8 @@ $result3 = mysqli_query($conn, $sql3);
             }
         }
     }
-    
+    $sql3="SELECT updated_on,weight FROM `weight_tracker` WHERE tracker_id='$id'";
+$result3 = mysqli_query($conn, $sql3);  
 ?>
  
 <!DOCTYPE html>
@@ -160,21 +154,22 @@ $result3 = mysqli_query($conn, $sql3);
   <h5 class="card-header fs-4">Add new log</h5>
   <div class="card-body">
     <h5 class="card-title">Enter weight:</h5>
-    <form method="POST" >
+    <form method="POST">
     <!-- action="weight_data.php" -->
     <input type="number" class="form-control fs-3" pattern="^[0-9]" id="wt_input" name="wt_input"
   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
   <button type="submit" name="submit" class="fs-3 btn m-3" id="ok"> Update Weight
-        </button>  
-        
+        </button>     
 </form>
-<p>
+
 
   </div>
 </div> 
-<h1>Target weight</h1>
-    <h3>to enter the healthy BMI range:</h3>
-    <h1 style="color:#ff44a8; font-size:1000" class="fw-bold">
+<div class="row" style="font-family: 'Sulphur Point', sans-serif;">
+<div style="display:inline" class="col-7"><h1 style="margin-bottom:4px;">Target weight</h1>
+    <h3 style="font-weight: 600;">to enter the healthy BMI range:</h3></div>
+
+    <div style="color:#ff44a8; font-size:6.5rem; padding-top:2rem; padding-left:2rem; font-weight: 500;" class="col">
     <?php
       $sql5="SELECT target_weight FROM `weight_tracker` WHERE tracker_id='$id'";
       $result5 = mysqli_query($conn, $sql5);
@@ -187,7 +182,10 @@ $result3 = mysqli_query($conn, $sql3);
         }
     }
     ?>
-    </h1>
+    </div>
+</div>
+<p class="fs-3 fw-lighter fst-italic">
+Track your progress till you reach your target, by logging your weight here from time to time.
 
 </p>   
     </div>
