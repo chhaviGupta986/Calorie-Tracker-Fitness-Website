@@ -5,7 +5,7 @@ error_reporting(0);
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
  exit();
   }
-
+///
   else{
     
     $user=$_SESSION['username'];
