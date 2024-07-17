@@ -1,6 +1,58 @@
-# Calorie-Tracker & Fitness Website
-Users can access limited functionalities of the website such as counting calories of a food item even without an account. However for effective usage of the website users must create their accounts. Upon signing up, user is asked for details such as their weight, height, gender etc. and using this information their BMI (Body Mass Index) is calculated. Based on their BMI, it is identified whether the user is fit, overweight or underweight. As the daily calorie requirement is different for different genders, the calorie target for the day is set by taking gender into consideration. After logging in, users can count calories by logging meals and workouts from our extensive food and exercise databases. Users can also track their water intake and maintain a timeline of their weight loss/gain journey by recording their progress from time to time. Users can also ask their queries in the Help section, and expect a response from the admins soon. The admin functionality is available only for the admins who are responsible for moderating the feedback section and replying to user queries.
-Link to website: https://rfit1.000webhostapp.com/
+# 🧘RFit Fitness Website
+
+Welcome to RFit, your go-to fitness website for tracking calories, workouts, and more. Users can access limited functionalities without an account, but creating an account unlocks the full potential of the website.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Website](#website)
+
+## Introduction
+RFit helps users manage their fitness journey by providing tools to count calories, log workouts, track water intake, and monitor their weight loss or gain progress. Users can also seek help and advice through the Help section.
+
+## Features
+- **🍎 Calorie Counting**: Count calories of food items even without an account.
+- **🔑 User Accounts**: Create an account for personalized fitness tracking.
+- **📊 BMI Calculation**: Calculate BMI based on weight, height, and gender to determine fitness status.
+- **🎯 Calorie Target**: Set daily calorie targets based on gender and BMI.
+- **📋 Logging**: Log meals and workouts using our extensive food and exercise databases.
+- **💧 Water Intake Tracking**: Track daily water intake.
+- **📈 Progress Timeline**: Maintain a timeline of weight loss or gain by recording progress over time.
+- **❓ Help Section**: Ask queries and get responses from admins.
+- **🛠 Admin Functionality**: Admins moderate the feedback section and respond to user queries.
+
+## Installation
+No installation required! Simply visit our website to start using RFit.
+
+## Usage
+1. **Without an Account**:
+    - Access the calorie counting feature for food items.
+
+2. **With an Account**:
+    - **Sign Up**: Provide details such as weight, height, and gender to calculate BMI.
+    - **Log In**: Access all features, including calorie and workout logging, water intake tracking, and progress timeline.
+    - **Help Section**: Ask queries and get responses from admins.
+    - **Post Feedbacks**: Share your experiences and suggestions through the feedback section.
+
+3. **Admin Functions**:
+    - Moderate user feedback.
+    - Respond to user queries.
+
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+## Website
+Visit our website: [RFit](https://rfit1.000webhostapp.com/)
+
 ![image](https://github.com/chhaviGupta986/Calorie-Tracker/assets/94625954/96313c4c-9354-4f02-a985-3dc0010ac44d)
 ![image](https://github.com/chhaviGupta986/Calorie-Tracker/assets/94625954/a5dbcd9b-7e7a-4cff-97b3-07ef2e6a619a)
 ![image](https://github.com/chhaviGupta986/Calorie-Tracker/assets/94625954/07848a68-f8c5-4087-a469-4be538d88e37)
